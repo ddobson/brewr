@@ -33,7 +33,6 @@ const onSignIn = function (event) {
   api.signIn(formData)
      .then((response) => {
        cookies.setCookie('token', response.user.token);
-       console.log(cookies.getCookie('token'));
      });
 };
 
