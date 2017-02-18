@@ -16,24 +16,22 @@ const onAuthPrompt = function (event) {
   authUI.triggerAuthModal(action);
 };
 
-// const onSignInPrompt = function (event) {
-//   event.preventDefault();
-//
-//   const action = parseActionId(event.target.id);
-// };
-
-// AJAX handlers //
-
 const onSignUp = function (event) {
   event.preventDefault();
 
   const formData = getFormFields(event.target);
 
-  api.signUp(formData);
+  api.signUp(formData)
+     .then(console.log('sign up successful'));
 };
 
 const onSignIn = function (event) {
   event.preventDefault();
+
+  const formData = getFormFields(event.target);
+
+  api.signIn(formData)
+     .then(console.log('sign in successful'));
 };
 
 const onSignOut = function (event) {
