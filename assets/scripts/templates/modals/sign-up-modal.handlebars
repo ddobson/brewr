@@ -1,0 +1,29 @@
+<div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up" class="auth-form" name="sign-up">
+          <fieldset>
+            <div class="form-group">
+              <label>Email</label>
+              <input class="form-control" type="text" name="credentials[email]" />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input class="form-control" type="password" name="credentials[password]" />
+            </div>
+            <div class="form-group">
+              <label>Password Confirmation</label>
+              <input class="form-control" type="password" name="credentials[password_confirmation]" />
+            </div>
+            <input type="submit" name="sign-up-btn" value="Sign up!" class="btn btn-primary">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
