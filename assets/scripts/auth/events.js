@@ -32,6 +32,7 @@ const onSignIn = function (event) {
 
   api.signIn(formData)
      .then((response) => {
+       cookies.setCookie('id', response.user.id);
        cookies.setCookie('token', response.user.token);
      });
 };
@@ -42,6 +43,11 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault();
+
+  const formData = getFormFields(event.target);
+
+  api.changePassword(formData)
+     .then(console.log('password changed'));
 };
 
 // Event Handling
@@ -49,6 +55,7 @@ const onChangePassword = function (event) {
 const addHandlers = () => {
   $('#content').on('click', '#sign-up-cta', onAuthPrompt);
   $('#content').on('click', '#sign-in-cta', onAuthPrompt);
+  $('#content').on('click', '#change-password-cta', onAuthPrompt);
   $('#content').on('submit', '#sign-up', onSignUp);
   $('#content').on('submit', '#sign-in', onSignIn);
   $('#content').on('submit', '#sign-out', onSignOut);
