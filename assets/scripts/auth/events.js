@@ -3,6 +3,7 @@
 const api = require('./api');
 const authUI = require('./ui');
 const getFormFields = require('../../../lib/get-form-fields');
+const cookies = require('../../../lib/cookies');
 
 const parseActionId = function (id) {
   return id.replace('-cta', '');
@@ -21,8 +22,7 @@ const onSignUp = function (event) {
 
   const formData = getFormFields(event.target);
 
-  api.signUp(formData)
-     .then(console.log('sign up successful'));
+  api.signUp(formData);
 };
 
 const onSignIn = function (event) {
@@ -31,7 +31,10 @@ const onSignIn = function (event) {
   const formData = getFormFields(event.target);
 
   api.signIn(formData)
-     .then(console.log('sign in successful'));
+     .then((response) => {
+       cookies.setCookie('token', response.user.token);
+       console.log(cookies.getCookie('token'));
+     });
 };
 
 const onSignOut = function (event) {
