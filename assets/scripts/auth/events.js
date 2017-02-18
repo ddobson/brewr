@@ -39,6 +39,12 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault();
+
+  api.signOut()
+     .then(() => {
+       cookies.deleteCookie('id');
+       cookies.deleteCookie('token');
+     });
 };
 
 const onChangePassword = function (event) {
@@ -58,8 +64,8 @@ const addHandlers = () => {
   $('#content').on('click', '#change-password-cta', onAuthPrompt);
   $('#content').on('submit', '#sign-up', onSignUp);
   $('#content').on('submit', '#sign-in', onSignIn);
-  $('#content').on('submit', '#sign-out', onSignOut);
   $('#content').on('submit', '#change-password', onChangePassword);
+  $('#content').on('click', '#sign-out', onSignOut);
 };
 
 module.exports = {
