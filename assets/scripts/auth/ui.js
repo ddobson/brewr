@@ -1,22 +1,22 @@
 'use strict';
 
 // TEMPLATE FILES //
-
 // Modal
+
 const signUpModal = require('../templates/modals/sign-up-modal.handlebars');
 const signInModal = require('../templates/modals/sign-in-modal.handlebars');
 const changePasswordModal = require('../templates/modals/change-password-modal.handlebars');
 
 // Navigation
+
 const authDropdown = require('../templates/navbar/authd-dropdown.handlebars');
 const collapseToggle = require('../templates/navbar/collapse-toggle.handlebars');
 
 // Welcome Content
+
 const welcomeContent = require('../templates/welcome-content.handlebars');
 
-// END TEMPLATES //
-
-function triggerAuthModal (action) {
+function triggerAuthModal(action) {
   switch (action) {
     case 'sign-up':
       const signUpModalHtml = signUpModal();
@@ -34,13 +34,14 @@ function triggerAuthModal (action) {
   }
 }
 
-function closeModal () {
+function closeModal() {
   $('.modal').modal('toggle');
   $('.modal-backdrop').remove();
 }
 
 // NAVIGATION FUNCTIONS
-function renderNavigation (userEmail) {
+
+function renderNavigation(userEmail) {
   const userInfo = {
     email: userEmail,
   };
@@ -52,13 +53,14 @@ function renderNavigation (userEmail) {
   $('#collapse-toggle-parent').prepend(collapseToggleHtml);
 }
 
-function resetNavigation () {
+function resetNavigation() {
   $('#dropdown-options').html('');
   $('#nav-collapse-button').remove();
 }
+
 // END NAVIGATION FUNCTIONS
 
-function renderWelcomeContent () {
+function renderWelcomeContent() {
   const welcomeContentHtml = welcomeContent();
   $('.content').html(welcomeContentHtml);
 }

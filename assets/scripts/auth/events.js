@@ -6,11 +6,11 @@ const recipeEvents = require('../recipes/events');
 const getFormFields = require('../../../lib/get-form-fields');
 const cookies = require('../../../lib/cookies');
 
-function parseActionId (id) {
+function parseActionId(id) {
   return id.replace('-cta', '');
 }
 
-function onAuthPrompt (event) {
+function onAuthPrompt(event) {
   event.preventDefault();
 
   const action = parseActionId(event.target.id);
@@ -18,7 +18,7 @@ function onAuthPrompt (event) {
   authUI.triggerAuthModal(action);
 }
 
-function onSignUp (event) {
+function onSignUp(event) {
   event.preventDefault();
 
   const formData = getFormFields(event.target);
@@ -27,44 +27,44 @@ function onSignUp (event) {
      .then(authUI.closeModal());
 }
 
-function onSignIn (event) {
+function onSignIn(event) {
   event.preventDefault();
 
   const formData = getFormFields(event.target);
 
   api.signIn(formData)
-     .then((response) => {
-       cookies.setCookie('id', response.user.id);
-       cookies.setCookie('email', response.user.email);
-       cookies.setCookie('token', response.user.token);
-     })
-     .then(() => {
-       const userEmail = cookies.getCookie('email');
+    .then((response) => {
+      cookies.setCookie('id', response.user.id);
+      cookies.setCookie('email', response.user.email);
+      cookies.setCookie('token', response.user.token);
+    })
+    .then(() => {
+      const userEmail = cookies.getCookie('email');
 
-       authUI.closeModal();
-       authUI.renderNavigation(userEmail);
-     })
-     .then(() => {
-       recipeEvents.getUserRecipes();
-     });
+      authUI.closeModal();
+      authUI.renderNavigation(userEmail);
+    })
+    .then(() => {
+      recipeEvents.getUserRecipes();
+    });
 }
 
-function onSignOut (event) {
+function onSignOut(event) {
   event.preventDefault();
 
   api.signOut()
-     .then(() => {
-       cookies.deleteCookie('id');
-       cookies.deleteCookie('email');
-       cookies.deleteCookie('token');
-     })
-     .then(() => {
-       authUI.renderWelcomeContent();
-       authUI.resetNavigation();
-     });
+    .then(() => {
+      cookies.deleteCookie('id');
+      cookies.deleteCookie('email');
+      cookies.deleteCookie('token');
+    })
+    .then(() => {
+      authUI.renderWelcomeContent();
+      authUI.resetNavigation();
+    });
 }
 
-function onChangePassword (event) {
+function onChangePassword(event) {
   event.preventDefault();
 
   const formData = getFormFields(event.target);
@@ -73,7 +73,7 @@ function onChangePassword (event) {
      .then(authUI.closeModal());
 }
 
-function checkAuthentication () {
+function checkAuthentication() {
   if (cookies.getCookie('token')) {
     const userEmail = cookies.getCookie('email');
 
@@ -86,7 +86,7 @@ function checkAuthentication () {
 
 // Event Handling
 
-function addHandlers () {
+function addHandlers() {
   $('#content').on('click', '#sign-up-cta', onAuthPrompt);
   $('#content').on('click', '#sign-in-cta', onAuthPrompt);
   $('#dropdown-options').on('click', '#change-password-cta', onAuthPrompt);

@@ -5,22 +5,28 @@ const api = require('./api');
 
 function getUserRecipes() {
   api.getRecipes()
-     .then((response) => {
-       const templateData = {recipes: response.recipes};
-       ui.renderHomeContent(templateData);
-     });
+    .then((response) => {
+      const templateData = {
+        recipes: response.recipes,
+      };
+
+      ui.renderHomeContent(templateData);
+    });
 }
 
 function showUserRecipe(event) {
   event.preventDefault();
 
-  const recipe_id = $(event.target).data('recipe-id');
+  const recipeId = $(event.target).data('recipe-id');
 
-  api.showRecipe(recipe_id)
-     .then((response) => {
-       const templateData = {recipe: response.recipe};
-       ui.showRecipeContent(templateData);
-     });
+  api.showRecipe(recipeId)
+    .then((response) => {
+      const templateData = {
+        recipe: response.recipe,
+      };
+
+      ui.showRecipeContent(templateData);
+    });
 }
 
 function addHandlers() {

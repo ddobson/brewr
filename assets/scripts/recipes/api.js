@@ -9,9 +9,9 @@ function getRecipes() {
   });
 }
 
-function showRecipe(recipe_id) {
+function showRecipe(recipeId) {
   return $.ajax({
-    url: config.apiOrigin + '/recipes/' + recipe_id,
+    url: config.apiOrigin + '/recipes/' + recipeId,
     method: 'GET',
   });
 }
