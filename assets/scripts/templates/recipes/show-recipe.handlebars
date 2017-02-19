@@ -8,9 +8,11 @@
     <strong>Ingredients</strong>
     <ul>
       {{#each recipes.0.ingredients}}
-        <li>{{}}
+        <li><span class="ingredient-quantity">{{quantity}} {{unit}} {{name}}</li>
       {{/each}}
     </ul>
+    <strong>Instructions</strong>
+    {{recipes.0.instructions}}
   </div>
 {{else if recipe}}
   <div class="panel-heading">
@@ -19,6 +21,14 @@
   <div class="panel-body">
     <strong>Summary</strong>
     <p>{{summary}}</p>
+    <strong>Ingredients</strong>
+    <ul>
+      {{#each ingredients}}
+        <li><span class="ingredient-quantity">{{quantity}} {{unit}} {{name}}</li>
+      {{/each}}
+    </ul>
+    <strong>Instructions</strong>
+    {{instructions}}
   </div>
 {{else}}
   <div class="panel-body">
