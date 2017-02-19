@@ -6,27 +6,27 @@ const recipeEvents = require('../recipes/events');
 const getFormFields = require('../../../lib/get-form-fields');
 const cookies = require('../../../lib/cookies');
 
-const parseActionId = function (id) {
+function parseActionId (id) {
   return id.replace('-cta', '');
-};
+}
 
-const onAuthPrompt = function (event) {
+function onAuthPrompt (event) {
   event.preventDefault();
 
   const action = parseActionId(event.target.id);
 
   authUI.triggerAuthModal(action);
-};
+}
 
-const onSignUp = function (event) {
+function onSignUp (event) {
   event.preventDefault();
 
   const formData = getFormFields(event.target);
 
   api.signUp(formData);
-};
+}
 
-const onSignIn = function (event) {
+function onSignIn (event) {
   event.preventDefault();
 
   const formData = getFormFields(event.target);
@@ -41,9 +41,9 @@ const onSignIn = function (event) {
      .then(() => {
        recipeEvents.onsuccessfulSignIn();
      });
-};
+}
 
-const onSignOut = function (event) {
+function onSignOut (event) {
   event.preventDefault();
 
   api.signOut()
@@ -51,20 +51,20 @@ const onSignOut = function (event) {
        cookies.deleteCookie('id');
        cookies.deleteCookie('token');
      });
-};
+}
 
-const onChangePassword = function (event) {
+function onChangePassword (event) {
   event.preventDefault();
 
   const formData = getFormFields(event.target);
 
   api.changePassword(formData)
      .then(console.log('password changed'));
-};
+}
 
 // Event Handling
 
-const addHandlers = () => {
+function addHandlers () {
   $('#content').on('click', '#sign-up-cta', onAuthPrompt);
   $('#content').on('click', '#sign-in-cta', onAuthPrompt);
   $('#content').on('click', '#change-password-cta', onAuthPrompt);
@@ -72,7 +72,7 @@ const addHandlers = () => {
   $('#content').on('submit', '#sign-in', onSignIn);
   $('#content').on('submit', '#change-password', onChangePassword);
   $('#content').on('click', '#sign-out', onSignOut);
-};
+}
 
 module.exports = {
   addHandlers,
