@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <div id="content" class="content">
-        <button id="sign-up-cta" class="btn btn-default" data-toggle="modal" data-target="#sign-up-modal">Sign Up</button>
-        <button id="sign-in-cta" class="btn btn-default" data-toggle="modal" data-target="#sign-in-modal">Sign In</button>
-        <button id="change-password-cta" class="btn btn-default" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
-        <button id="sign-out" class="btn btn-default">Sign Out</button>
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div id="collapse-toggle-parent" class="navbar-header">
+        <!-- Collapse toggle goes here -->
+        <a class="navbar-brand" href="#">Brewr</a>
       </div>
-    </body>
+      <div class="collapse navbar-collapse" id="dropdown-options">
+        <!-- Options template insert here -->
+      </div>
+    </div>
+  </nav>
+
+  <div id="content" class="container content">
+    <button id="sign-up-cta" class="btn btn-default" data-toggle="modal" data-target="#sign-up-modal">Sign Up</button>
+    <button id="sign-in-cta" class="btn btn-default" data-toggle="modal" data-target="#sign-in-modal">Sign In</button>
+  </div>
+</body>
+
 </html>

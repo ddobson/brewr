@@ -36,7 +36,12 @@ function onSignIn (event) {
        cookies.setCookie('id', response.user.id);
        cookies.setCookie('email', response.user.email);
        cookies.setCookie('token', response.user.token);
+     })
+     .then(() => {
+       const userEmail = cookies.getCookie('email');
+
        authUI.closeModal();
+       authUI.renderNavigation(userEmail);
      })
      .then(() => {
        recipeEvents.onsuccessfulSignIn();
@@ -49,6 +54,7 @@ function onSignOut (event) {
   api.signOut()
      .then(() => {
        cookies.deleteCookie('id');
+       cookies.deleteCookie('email');
        cookies.deleteCookie('token');
      });
 }
@@ -67,11 +73,11 @@ function onChangePassword (event) {
 function addHandlers () {
   $('#content').on('click', '#sign-up-cta', onAuthPrompt);
   $('#content').on('click', '#sign-in-cta', onAuthPrompt);
-  $('#content').on('click', '#change-password-cta', onAuthPrompt);
+  $('#dropdown-options').on('click', '#change-password-cta', onAuthPrompt);
   $('#content').on('submit', '#sign-up', onSignUp);
   $('#content').on('submit', '#sign-in', onSignIn);
   $('#content').on('submit', '#change-password', onChangePassword);
-  $('#content').on('click', '#sign-out', onSignOut);
+  $('#dropdown-options').on('click', '#sign-out', onSignOut);
 }
 
 module.exports = {

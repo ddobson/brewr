@@ -1,8 +1,13 @@
 'use strict';
 
+// Modal Templates
 const signUpModal = require('../templates/modals/sign-up-modal.handlebars');
 const signInModal = require('../templates/modals/sign-in-modal.handlebars');
 const changePasswordModal = require('../templates/modals/change-password-modal.handlebars');
+
+// Navigation Templates
+const authDropdown = require('../templates/navbar/authd-dropdown.handlebars');
+const collapseToggle = require('../templates/navbar/collapse-toggle.handlebars');
 
 function triggerAuthModal (action) {
   switch (action) {
@@ -27,7 +32,20 @@ function closeModal () {
   $('.modal-backdrop').remove();
 }
 
+function renderNavigation (userEmail) {
+  const userInfo = {
+    email: userEmail,
+  };
+
+  const authDropdownHtml = authDropdown(userInfo);
+  const collapseToggleHtml = collapseToggle();
+
+  $('#dropdown-options').html(authDropdownHtml);
+  $('#collapse-toggle-parent').prepend(collapseToggleHtml);
+}
+
 module.exports = {
   closeModal,
+  renderNavigation,
   triggerAuthModal,
 };
