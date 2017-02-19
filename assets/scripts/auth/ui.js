@@ -4,7 +4,7 @@ const signUpModal = require('../templates/modals/sign-up-modal.handlebars');
 const signInModal = require('../templates/modals/sign-in-modal.handlebars');
 const changePasswordModal = require('../templates/modals/change-password-modal.handlebars');
 
-const triggerAuthModal = function (action) {
+function triggerAuthModal (action) {
   switch (action) {
     case 'sign-up':
       const signUpModalHtml = signUpModal();
@@ -20,8 +20,14 @@ const triggerAuthModal = function (action) {
       break;
     default:
   }
-};
+}
+
+function closeModal () {
+  $('.modal').modal('toggle');
+  $('.modal-backdrop').remove();
+}
 
 module.exports = {
+  closeModal,
   triggerAuthModal,
 };

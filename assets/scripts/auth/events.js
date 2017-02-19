@@ -2,6 +2,7 @@
 
 const api = require('./api');
 const authUI = require('./ui');
+const recipeEvents = require('../recipes/events');
 const getFormFields = require('../../../lib/get-form-fields');
 const cookies = require('../../../lib/cookies');
 
@@ -33,7 +34,12 @@ const onSignIn = function (event) {
   api.signIn(formData)
      .then((response) => {
        cookies.setCookie('id', response.user.id);
+       cookies.setCookie('email', response.user.email);
        cookies.setCookie('token', response.user.token);
+       authUI.closeModal();
+     })
+     .then(() => {
+       recipeEvents.onsuccessfulSignIn();
      });
 };
 
