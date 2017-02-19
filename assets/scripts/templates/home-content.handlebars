@@ -11,7 +11,7 @@
           <ul class="list-group recipes-list">
             {{#each recipes}}
               <li class="list-group-item">
-                <a href="{{id}}">{{name}}</a>
+                <a class="recipe-item" data-recipe-id="{{id}}" href="#">{{name}}</a>
               </li>
             {{/each}}
           </ul>
