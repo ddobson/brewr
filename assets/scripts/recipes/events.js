@@ -3,7 +3,7 @@
 const ui = require('./ui');
 const api = require('./api');
 
-function onsuccessfulSignIn () {
+function getUserRecipes () {
   api.getRecipes()
      .then((response) => {
        const recipes = {recipes: response.recipes};
@@ -12,5 +12,5 @@ function onsuccessfulSignIn () {
 }
 
 module.exports = {
-  onsuccessfulSignIn,
+  getUserRecipes,
 };

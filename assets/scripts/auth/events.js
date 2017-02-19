@@ -23,7 +23,8 @@ function onSignUp (event) {
 
   const formData = getFormFields(event.target);
 
-  api.signUp(formData);
+  api.signUp(formData)
+     .then(authUI.closeModal());
 }
 
 function onSignIn (event) {
@@ -44,7 +45,7 @@ function onSignIn (event) {
        authUI.renderNavigation(userEmail);
      })
      .then(() => {
-       recipeEvents.onsuccessfulSignIn();
+       recipeEvents.getUserRecipes();
      });
 }
 
@@ -56,6 +57,10 @@ function onSignOut (event) {
        cookies.deleteCookie('id');
        cookies.deleteCookie('email');
        cookies.deleteCookie('token');
+     })
+     .then(() => {
+       authUI.renderWelcomeContent();
+       authUI.resetNavigation();
      });
 }
 
@@ -65,7 +70,18 @@ function onChangePassword (event) {
   const formData = getFormFields(event.target);
 
   api.changePassword(formData)
-     .then(console.log('password changed'));
+     .then(authUI.closeModal());
+}
+
+function checkAuthentication () {
+  if (cookies.getCookie('token')) {
+    const userEmail = cookies.getCookie('email');
+
+    authUI.renderNavigation(userEmail);
+    recipeEvents.getUserRecipes();
+  } else {
+    authUI.renderWelcomeContent();
+  }
 }
 
 // Event Handling
@@ -82,4 +98,5 @@ function addHandlers () {
 
 module.exports = {
   addHandlers,
+  checkAuthentication,
 };
