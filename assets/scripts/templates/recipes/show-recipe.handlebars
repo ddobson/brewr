@@ -3,32 +3,62 @@
     <h3 class="panel-title">{{recipes.0.name}}</h3>
   </div>
   <div class="panel-body">
-    <strong>Summary</strong>
-    <p>{{recipes.0.summary}}</p>
-    <strong>Ingredients</strong>
+    <div class="row">
+      <div class="col-xs-12 col-sm-5 col-md-4">
+        <img src="{{recipes.0.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
+      </div>
+      <div class="col-xs-12 col-sm-7 col-md-8">
+        <h4>Summary</h4>
+        <p>{{recipes.0.summary}}</p>
+      </div>
+    </div>
+    <h4>Ingredients</h4>
     <ul>
       {{#each recipes.0.ingredients}}
         <li><span class="ingredient-quantity">{{quantity}} {{unit}} {{name}}</li>
       {{/each}}
     </ul>
-    <strong>Instructions</strong>
-    {{recipes.0.instructions}}
+    <h4>Instructions</h4>
+    <p>{{recipes.0.instructions}}</p>
+    <h4>Specifications</h4>
+    <div class="well">
+      <p><strong>ABV: </strong><span class="spec">{{recipes.0.abv}}</span></p>
+      <p><strong>IBU: </strong><span class="spec">{{recipes.0.ibu}}</span></p>
+      <p><strong>SRM: </strong><span class="spec">{{recipes.0.srm}}</span></p>
+      <p><strong>Original Gravity: </strong><span class="spec">{{recipes.0.original_gravity}}</span></p>
+      <p><strong>Final Gravity: </strong><span class="spec">{{recipes.0.final_gravity}}</span></p>
+    </div>
   </div>
 {{else if recipe}}
   <div class="panel-heading">
     <h3 class="panel-title">{{name}}</h3>
   </div>
   <div class="panel-body">
-    <strong>Summary</strong>
-    <p>{{summary}}</p>
-    <strong>Ingredients</strong>
+    <div class="row">
+      <div class="col-xs-12 col-sm-5 col-md-4">
+        <img src="{{image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
+      </div>
+      <div class="col-xs-12 col-sm-7 col-md-8">
+        <h4>Summary</h4>
+        <p>{{summary}}</p>
+      </div>
+    </div>
+    <h4>Ingredients</h4>
     <ul>
       {{#each ingredients}}
         <li><span class="ingredient-quantity">{{quantity}} {{unit}} {{name}}</li>
       {{/each}}
     </ul>
-    <strong>Instructions</strong>
-    {{instructions}}
+    <h4>Instructions</h4>
+    <p>{{instructions}}</p>
+    <h4>Specifications</h4>
+    <div class="well">
+      <p><strong>ABV: </strong><span class="spec">{{abv}}</span></p>
+      <p><strong>IBU: </strong><span class="spec">{{ibu}}</span></p>
+      <p><strong>SRM: </strong><span class="spec">{{srm}}</span></p>
+      <p><strong>Original Gravity: </strong><span class="spec">{{original_gravity}}</span></p>
+      <p><strong>Final Gravity: </strong><span class="spec">{{final_gravity}}</span></p>
+    </div>
   </div>
 {{else}}
   <div class="panel-body">
