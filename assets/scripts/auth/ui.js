@@ -17,6 +17,10 @@ const collapseToggle = require('../templates/navbar/collapse-toggle.handlebars')
 
 const welcomeContent = require('../templates/welcome-content.handlebars');
 
+// Alerts
+
+const alertBar = require('../templates/alerts.handlebars');
+
 function triggerAuthModal(action) {
   switch (action) {
     case 'sign-up':
@@ -37,7 +41,7 @@ function triggerAuthModal(action) {
 
 function onAuthError(type) {
   const message = {
-    message: 'Uh oh, an error occured! Please check your credentials and try again.'
+    message: 'Uh oh, an error occured! Please check your credentials and try again.',
   };
   const authErrorsHtml = authErrors(message);
 
@@ -52,6 +56,26 @@ function onAuthError(type) {
       $('#change-password-body').prepend(authErrorsHtml);
       break;
   }
+}
+
+function onAuthSuccess(type) {
+  const message = {
+    alertType: 'alert-success',
+  };
+
+  switch (type) {
+    case 'sign-up':
+      message.message = 'Success! Sign-In to begin.';
+      break;
+    case 'change-password':
+      message.message = 'Success! Your password has been changed.';
+      break;
+    default:
+      message.message = 'Success!';
+  }
+
+  const alertBarHtml = alertBar(message);
+  $('#alert-wrap').html(alertBarHtml);
 }
 
 function closeModal() {
@@ -88,6 +112,7 @@ function renderWelcomeContent() {
 module.exports = {
   closeModal,
   onAuthError,
+  onAuthSuccess,
   renderNavigation,
   renderWelcomeContent,
   resetNavigation,

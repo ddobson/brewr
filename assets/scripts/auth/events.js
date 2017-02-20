@@ -24,10 +24,13 @@ function onSignUp(event) {
   const formData = getFormFields(event.target);
 
   api.signUp(formData)
-     .then(authUI.closeModal)
-     .catch(() => {
-       authUI.onAuthError('sign-up');
-     });
+    .then(() => {
+      authUI.closeModal();
+      authUI.onAuthSuccess('sign-up');
+    })
+    .catch(() => {
+      authUI.onAuthError('sign-up');
+    });
 }
 
 function onSignIn(event) {
@@ -76,10 +79,13 @@ function onChangePassword(event) {
   const formData = getFormFields(event.target);
 
   api.changePassword(formData)
-     .then(authUI.closeModal)
-     .catch(() => {
-       authUI.onAuthError('change-password');
-     });
+    .then(() => {
+      authUI.closeModal();
+      authUI.onAuthSuccess('change-password');
+    })
+    .catch(() => {
+      authUI.onAuthError('change-password');
+    });
 }
 
 function checkAuthentication() {
