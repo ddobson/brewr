@@ -4,8 +4,6 @@ require('form-serializer');
 
 const ui = require('./ui');
 const api = require('./api');
-const getFormFields = require('../../../lib/get-form-fields');
-
 
 function getAndShowRecipes() {
   api.getUserRecipes()
@@ -35,6 +33,18 @@ function showUserRecipe(event) {
 
 function newRecipeForm() {
   ui.renderNewRecipeForm();
+}
+
+function onAddIngredient(event) {
+  event.preventDefault();
+
+  ui.addIngredientForm(event.target);
+}
+
+function onDestroyIngredient(event) {
+  event.preventDefault();
+
+  ui.destroyIngredientForm(event.target);
 }
 
 function onNewRecipeSubmit(event) {
@@ -69,6 +79,8 @@ function confirmDestroyRecipe(event) {
 function addHandlers() {
   $('#content').on('click', '.recipe-item', showUserRecipe);
   $('#content').on('click', '#new-recipe-btn', newRecipeForm);
+  $('#content').on('click', '#new-ingredient-btn', onAddIngredient);
+  $('#content').on('click', '.destroy-ingredient-btn', onDestroyIngredient);
   $('#content').on('submit', '#new-recipe-form', onNewRecipeSubmit);
   $('#content').on('click', '#destroy-recipe-btn', onDestroyRecipe);
   $('#content').on('click', '#confirm-destroy-recipe-btn', confirmDestroyRecipe);
