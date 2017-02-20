@@ -29,8 +29,14 @@ function showUserRecipe(event) {
     });
 }
 
+function newRecipeForm() {
+  ui.renderNewRecipeForm();
+  console.log('event registered');
+}
+
 function addHandlers() {
   $('.content').on('click', '.recipe-item', showUserRecipe);
+  $('.content').on('click', '#new-recipe-btn', newRecipeForm);
 }
 
 module.exports = {
