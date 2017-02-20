@@ -40,28 +40,20 @@
         <label for="recipeName">Final Gravity</label>
         <input id="recipe-final-gravity" name="recipe[final_gravity]" type="text" class="form-control" placeholder="Final Gravity">
       </div>
-      <hr />
-      <div class="row">
-        <div class="form-group">
-          <div class="col-xs-2">
-            <input name="recipe[recipe_ingredients_attributes][][quantity]" type="number" class="form-control" id="recipeIngredientQuantity" placeholder="Qty">
-          </div>
-          <div class="col-md-2">
-            <select id="recipeIngredientUnit" name="recipe[recipe_ingredients_attributes][][ingredient_attributes][unit]" class="form-control form-inline">
-              <option>oz</option>
-              <option>gal</option>
-              <option>lb</option>
-              <option>tsp</option>
-              <option>tbs</option>
-            </select>
-          </div>
-          <div class="col-md-8">
-            <input name="recipe[recipe_ingredients_attributes][][ingredient_attributes][name]" type="text" class="form-control" id="recipeIngredientName" placeholder="Ingredient">
-          </div>
+      <hr /> {{> add-ingredient-form}}
+      <div class="row button-control">
+        <div class="col-xs-12">
+          <button id="new-ingredient-btn" class="btn btn-success pull-right">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
         </div>
       </div>
       <hr />
-      <button id="new-recipe-submit-btn" type="submit" name="new-recipe-submit-btn" class="btn btn-success pull-right">Submit</button>
+      <div class="row">
+        <div class="col-xs-12">
+          <button id="new-recipe-submit-btn" class="btn btn-primary btn-lg pull-right" type="submit" name="new-recipe-submit-btn">Submit</button>
+        </div>
+      </div>
     </fieldset>
   </form>
 </div>
