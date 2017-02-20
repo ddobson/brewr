@@ -2,58 +2,64 @@
   <h3 class="panel-title">New Recipe</h3>
 </div>
 <div class="panel-body">
-  <form>
-    <div class="form-group required">
-      <label for="recipeName">Name</label>
-      <input name="recipe[name]" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
-    </div>
-    <div class="form-group">
-      <label for="recipeSummary">Summary</label>
-      <textarea name="recipe[summary]" class="form-control" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="recipeInstructions">Instructions</label>
-      <textarea name="recipe[instructions]" class="form-control" rows="4"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="recipeName">ABV</label>
-      <input name="recipe[abv]" type="number" class="form-control" id="recipeABV" placeholder="ABV">
-    </div>
-    <div class="form-group">
-      <label for="recipeName">IBU</label>
-      <input name="recipe[ibu]" type="number" class="form-control" id="recipeIBU" placeholder="IBU">
-    </div>
-    <div class="form-group">
-      <label for="recipeName">SRM</label>
-      <input name="recipe[srm]" type="number" class="form-control" id="recipeSRM" placeholder="SRM">
-    </div>
-    <div class="form-group">
-      <label for="recipeName">Original Gavity</label>
-      <input name="recipe[original_gravity]" type="number" class="form-control" id="recipeOriginalGravity" placeholder="Original Gavity">
-    </div>
-    <div class="form-group">
-      <label for="recipeName">Final Gravity</label>
-      <input name="recipe[final_gravity]" type="number" class="form-control" id="recipeFinalGravity" placeholder="Final Gravity">
-    </div>
-    <!-- <div class="row">
+  <form id="new-recipe-form">
+    <fieldset>
+      <div class="form-group required">
+        <label for="recipeName">Name</label>
+        <input name="recipe[name]" type="text" class="form-control" id="recipe-name" placeholder="Name">
+      </div>
+      <div class="form-group required">
+        <label for="recipeName">Image URL</label>
+        <input name="recipe[image_url]" type="text" class="form-control" id="recipe-image-url" placeholder="Example: http://i.imgur.com/homebrew.jpg">
+      </div>
       <div class="form-group">
-        <div class="col-xs-2">
-          <input name="" type="number" class="form-control" id="recipeFinalGravity" placeholder="Qty">
-        </div>
-        <div class="col-md-2">
-          <select class="form-control form-inline">
+        <label for="recipeSummary">Summary</label>
+        <textarea id="recipe-summary" name="recipe[summary]" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="recipeInstructions">Instructions</label>
+        <textarea id="recipe-instructions" name="recipe[instructions]" class="form-control" rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="recipeName">ABV</label>
+        <input id="recipe-abv" name="recipe[abv]" type="text" class="form-control" placeholder="ABV">
+      </div>
+      <div class="form-group">
+        <label for="recipeName">IBU</label>
+        <input id="recipe-ibu" name="recipe[ibu]" type="text" class="form-control" placeholder="IBU">
+      </div>
+      <div class="form-group">
+        <label for="recipeName">SRM</label>
+        <input id="recipe-srm" name="recipe[srm]" type="text" class="form-control" placeholder="SRM">
+      </div>
+      <div class="form-group">
+        <label for="recipeName">Original Gavity</label>
+        <input id="recipe-original-gravity" name="recipe[original_gravity]" type="text" class="form-control" placeholder="Original Gavity">
+      </div>
+      <div class="form-group">
+        <label for="recipeName">Final Gravity</label>
+        <input id="recipe-final-gravity" name="recipe[final_gravity]" type="text" class="form-control" placeholder="Final Gravity">
+      </div>
+      <!-- <div class="row">
+        <div class="form-group">
+          <div class="col-xs-2">
+            <input name="" type="number" class="form-control" id="recipeFinalGravity" placeholder="Qty">
+          </div>
+          <div class="col-md-2">
+            <select class="form-control form-inline">
           <option>oz</option>
           <option>gal</option>
           <option>lb</option>
           <option>tsp</option>
           <option>tbs</option>
         </select>
+          </div>
+          <div class="col-md-8">
+            <input name="" type="text" class="form-control" id="recipeFinalGravity" placeholder="Ingredient">
+          </div>
         </div>
-        <div class="col-md-8">
-          <input name="" type="text" class="form-control" id="recipeFinalGravity" placeholder="Ingredient">
-        </div>
-      </div>
-    </div> -->
-    <button type="submit" class="btn btn-success">Submit</button>
+      </div> -->
+      <button id="new-recipe-submit-btn" type="submit" name="new-recipe-submit-btn" class="btn btn-success">Submit</button>
+    </fieldset>
   </form>
 </div>

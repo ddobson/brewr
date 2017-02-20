@@ -2,6 +2,7 @@
 
 const ui = require('./ui');
 const api = require('./api');
+const getFormFields = require('../../../lib/get-form-fields');
 
 function getAndShowRecipes() {
   api.getUserRecipes()
@@ -31,12 +32,25 @@ function showUserRecipe(event) {
 
 function newRecipeForm() {
   ui.renderNewRecipeForm();
-  console.log('event registered');
+}
+
+function onNewRecipeSubmit(event) {
+  event.preventDefault();
+
+  const formData = getFormFields(event.target);
+
+  console.log(formData);
+
+  api.createRecipe(formData)
+    .then((response) => {
+      console.log(response);
+    });
 }
 
 function addHandlers() {
-  $('.content').on('click', '.recipe-item', showUserRecipe);
-  $('.content').on('click', '#new-recipe-btn', newRecipeForm);
+  $('#content').on('click', '.recipe-item', showUserRecipe);
+  $('#content').on('click', '#new-recipe-btn', newRecipeForm);
+  $('#content').on('submit', '#new-recipe-form', onNewRecipeSubmit);
 }
 
 module.exports = {

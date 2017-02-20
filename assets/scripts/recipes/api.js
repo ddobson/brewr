@@ -20,7 +20,19 @@ function showRecipe(recipeId) {
   });
 }
 
+function createRecipe(formData) {
+  return $.ajax({
+    url: config.apiOrigin + '/recipes',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + cookies.getCookie('token'),
+    },
+    data: formData,
+  });
+}
+
 module.exports = {
+  createRecipe,
   getUserRecipes,
   showRecipe,
 };
