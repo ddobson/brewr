@@ -1,3 +1,59 @@
 <div class="panel-heading">
   <h3 class="panel-title">New Recipe</h3>
 </div>
+<div class="panel-body">
+  <form>
+    <div class="form-group required">
+      <label for="recipeName">Name</label>
+      <input name="recipe[name]" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label for="recipeSummary">Summary</label>
+      <textarea name="recipe[summary]" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="recipeInstructions">Instructions</label>
+      <textarea name="recipe[instructions]" class="form-control" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="recipeName">ABV</label>
+      <input name="recipe[abv]" type="number" class="form-control" id="recipeABV" placeholder="ABV">
+    </div>
+    <div class="form-group">
+      <label for="recipeName">IBU</label>
+      <input name="recipe[ibu]" type="number" class="form-control" id="recipeIBU" placeholder="IBU">
+    </div>
+    <div class="form-group">
+      <label for="recipeName">SRM</label>
+      <input name="recipe[srm]" type="number" class="form-control" id="recipeSRM" placeholder="SRM">
+    </div>
+    <div class="form-group">
+      <label for="recipeName">Original Gavity</label>
+      <input name="recipe[original_gravity]" type="number" class="form-control" id="recipeOriginalGravity" placeholder="Original Gavity">
+    </div>
+    <div class="form-group">
+      <label for="recipeName">Final Gravity</label>
+      <input name="recipe[final_gravity]" type="number" class="form-control" id="recipeFinalGravity" placeholder="Final Gravity">
+    </div>
+    <!-- <div class="row">
+      <div class="form-group">
+        <div class="col-xs-2">
+          <input name="" type="number" class="form-control" id="recipeFinalGravity" placeholder="Qty">
+        </div>
+        <div class="col-md-2">
+          <select class="form-control form-inline">
+          <option>oz</option>
+          <option>gal</option>
+          <option>lb</option>
+          <option>tsp</option>
+          <option>tbs</option>
+        </select>
+        </div>
+        <div class="col-md-8">
+          <input name="" type="text" class="form-control" id="recipeFinalGravity" placeholder="Ingredient">
+        </div>
+      </div>
+    </div> -->
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
