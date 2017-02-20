@@ -42,8 +42,8 @@ function onNewRecipeSubmit(event) {
   console.log(formData);
 
   api.createRecipe(formData)
-    .then((response) => {
-      console.log(response);
+    .then(() => {
+      getAndShowRecipes();
     });
 }
 
