@@ -1,8 +1,11 @@
 'use strict';
 
+require('form-serializer');
+
 const ui = require('./ui');
 const api = require('./api');
 const getFormFields = require('../../../lib/get-form-fields');
+
 
 function getAndShowRecipes() {
   api.getUserRecipes()
@@ -37,11 +40,9 @@ function newRecipeForm() {
 function onNewRecipeSubmit(event) {
   event.preventDefault();
 
-  const formData = getFormFields(event.target);
+  const $formData = $(event.target).serializeObject();
 
-  console.log(formData);
-
-  api.createRecipe(formData)
+  api.createRecipe($formData)
     .then(() => {
       getAndShowRecipes();
     });
