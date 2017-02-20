@@ -6,6 +6,7 @@
 const signUpModal = require('../templates/modals/sign-up-modal.handlebars');
 const signInModal = require('../templates/modals/sign-in-modal.handlebars');
 const changePasswordModal = require('../templates/modals/change-password-modal.handlebars');
+const authErrors = require('../templates/modals/auth-errors.handlebars');
 
 // Navigation
 
@@ -31,6 +32,25 @@ function triggerAuthModal(action) {
       $('#content').append(changePasswordHtml);
       break;
     default:
+  }
+}
+
+function onAuthError(type) {
+  const message = {
+    message: 'Uh oh, an error occured! Please check your credentials and try again.'
+  };
+  const authErrorsHtml = authErrors(message);
+
+  switch (type) {
+    case 'sign-in':
+      $('#sign-in-body').prepend(authErrorsHtml);
+      break;
+    case 'sign-up':
+      $('#sign-up-body').prepend(authErrorsHtml);
+      break;
+    case 'change-password':
+      $('#change-password-body').prepend(authErrorsHtml);
+      break;
   }
 }
 
@@ -67,6 +87,7 @@ function renderWelcomeContent() {
 
 module.exports = {
   closeModal,
+  onAuthError,
   renderNavigation,
   renderWelcomeContent,
   resetNavigation,

@@ -24,7 +24,10 @@ function onSignUp(event) {
   const formData = getFormFields(event.target);
 
   api.signUp(formData)
-     .then(authUI.closeModal());
+     .then(authUI.closeModal)
+     .catch(() => {
+       authUI.onAuthError('sign-up');
+     });
 }
 
 function onSignIn(event) {
@@ -46,6 +49,9 @@ function onSignIn(event) {
     })
     .then(() => {
       recipeEvents.getAndShowRecipes();
+    })
+    .catch(() => {
+      authUI.onAuthError('sign-in');
     });
 }
 
@@ -70,7 +76,10 @@ function onChangePassword(event) {
   const formData = getFormFields(event.target);
 
   api.changePassword(formData)
-     .then(authUI.closeModal());
+     .then(authUI.closeModal)
+     .catch(() => {
+       authUI.onAuthError('change-password');
+     });
 }
 
 function checkAuthentication() {

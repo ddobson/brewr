@@ -70,7 +70,7 @@ function addHandlers() {
   $('#content').on('click', '#new-recipe-btn', newRecipeForm);
   $('#content').on('submit', '#new-recipe-form', onNewRecipeSubmit);
   $('#content').on('click', '#destroy-recipe-btn', onDestroyRecipe);
-  $('#content').on('click', '#confirm-destroy-recipe-btn', confirmDestroyRecipe)
+  $('#content').on('click', '#confirm-destroy-recipe-btn', confirmDestroyRecipe);
 }
 
 module.exports = {
