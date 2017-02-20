@@ -3,8 +3,8 @@
 const ui = require('./ui');
 const api = require('./api');
 
-function getUserRecipes() {
-  api.getRecipes()
+function getAndShowRecipes() {
+  api.getUserRecipes()
     .then((response) => {
       const templateData = {
         recipes: response.recipes,
@@ -35,5 +35,5 @@ function addHandlers() {
 
 module.exports = {
   addHandlers,
-  getUserRecipes,
+  getAndShowRecipes,
 };

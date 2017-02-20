@@ -1,11 +1,15 @@
 'use strict';
 
 const config = require('../config');
+const cookies = require('../../../lib/cookies');
 
-function getRecipes() {
+function getUserRecipes() {
   return $.ajax({
-    url: config.apiOrigin + '/recipes',
+    url: config.apiOrigin + '/user_recipes',
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + cookies.getCookie('token'),
+    },
   });
 }
 
@@ -17,6 +21,6 @@ function showRecipe(recipeId) {
 }
 
 module.exports = {
-  getRecipes,
+  getUserRecipes,
   showRecipe,
 };

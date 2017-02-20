@@ -45,7 +45,7 @@ function onSignIn(event) {
       authUI.renderNavigation(userEmail);
     })
     .then(() => {
-      recipeEvents.getUserRecipes();
+      recipeEvents.getAndShowRecipes();
     });
 }
 
@@ -78,7 +78,7 @@ function checkAuthentication() {
     const userEmail = cookies.getCookie('email');
 
     authUI.renderNavigation(userEmail);
-    recipeEvents.getUserRecipes();
+    recipeEvents.getAndShowRecipes();
   } else {
     authUI.renderWelcomeContent();
   }
