@@ -47,10 +47,30 @@ function onNewRecipeSubmit(event) {
     });
 }
 
+function onDestroyRecipe(event) {
+  event.preventDefault(event);
+
+  const recipeId = $(event.target).data('recipe-id');
+
+  ui.confirmDestroyModal(recipeId);
+}
+
+function confirmDestroyRecipe(event) {
+  event.preventDefault(event);
+
+  const recipeId = $(event.target).data('recipe-id');
+
+  api.destroyRecipe(recipeId)
+  .then(ui.destroySuccessful)
+  .then(getAndShowRecipes);
+}
+
 function addHandlers() {
   $('#content').on('click', '.recipe-item', showUserRecipe);
   $('#content').on('click', '#new-recipe-btn', newRecipeForm);
   $('#content').on('submit', '#new-recipe-form', onNewRecipeSubmit);
+  $('#content').on('click', '#destroy-recipe-btn', onDestroyRecipe);
+  $('#content').on('click', '#confirm-destroy-recipe-btn', confirmDestroyRecipe)
 }
 
 module.exports = {

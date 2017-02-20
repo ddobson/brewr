@@ -1,8 +1,21 @@
 'use strict';
 
+// TEMPLATES
+
+// CONTENT
+
 const homeContent = require('../templates/home-content.handlebars');
 const showRecipe = require('../templates/recipes/show-recipe.handlebars');
 const newRecipe = require('../templates/recipes/new-recipe-form.handlebars');
+
+// MODALS
+
+const destroyRecipeModal = require('../templates/modals/confirm-destroy-recipe.handlebars');
+
+function closeModal() {
+  $('.modal').modal('toggle');
+  $('.modal-backdrop').remove();
+}
 
 function renderHomeContent(recipes) {
   const homeContentHtml = homeContent(recipes);
@@ -19,7 +32,24 @@ function renderNewRecipeForm() {
   $('#main-recipe-content>.panel').html(newRecipeFormHtml);
 }
 
+function confirmDestroyModal(recipeId) {
+  const recipeIdSource = {
+    id: recipeId,
+  };
+
+  const destroyRecipeModalHtml = destroyRecipeModal(recipeIdSource);
+
+  $('#content').append(destroyRecipeModalHtml);
+  $('#confirm-destroy-recipe-modal').modal('toggle');
+}
+
+function destroySuccessful() {
+  closeModal();
+}
+
 module.exports = {
+  confirmDestroyModal,
+  destroySuccessful,
   renderHomeContent,
   showRecipeContent,
   renderNewRecipeForm,

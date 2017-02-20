@@ -20,15 +20,15 @@ function triggerAuthModal(action) {
   switch (action) {
     case 'sign-up':
       const signUpModalHtml = signUpModal();
-      $('.content').append(signUpModalHtml);
+      $('#content').append(signUpModalHtml);
       break;
     case 'sign-in':
       const signInModalHtml = signInModal();
-      $('.content').append(signInModalHtml);
+      $('#content').append(signInModalHtml);
       break;
     case 'change-password':
       const changePasswordHtml = changePasswordModal();
-      $('.content').append(changePasswordHtml);
+      $('#content').append(changePasswordHtml);
       break;
     default:
   }

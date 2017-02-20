@@ -28,6 +28,7 @@
       <p><strong>Original Gravity: </strong><span class="spec">{{recipes.0.original_gravity}}</span></p>
       <p><strong>Final Gravity: </strong><span class="spec">{{recipes.0.final_gravity}}</span></p>
     </div>
+    <button id="destroy-recipe-btn" type="button" name="destroy-recipe-submit-btn" data-recipe-id="{{recipes.0.id}}" class="btn btn-danger pull-right">Delete</button>
   </div>
 {{else if recipe}}
   <div class="panel-heading">
@@ -59,6 +60,7 @@
       <p><strong>Original Gravity: </strong><span class="spec">{{recipe.original_gravity}}</span></p>
       <p><strong>Final Gravity: </strong><span class="spec">{{recipe.final_gravity}}</span></p>
     </div>
+    <button id="destroy-recipe-btn" type="button" name="destroy-recipe-submit-btn" data-recipe-id="{{recipe.id}}" class="btn btn-danger pull-right" data-toggle="modal" data-target="#confirm-destroy-recipe-modal">Delete</button>
   </div>
 {{else}}
   <div class="panel-body">

@@ -31,8 +31,19 @@ function createRecipe(formData) {
   });
 }
 
+function destroyRecipe(recipeId) {
+  return $.ajax({
+    url: config.apiOrigin + '/recipes/' + recipeId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + cookies.getCookie('token'),
+    },
+  });
+}
+
 module.exports = {
   createRecipe,
+  destroyRecipe,
   getUserRecipes,
   showRecipe,
 };
