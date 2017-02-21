@@ -13,7 +13,7 @@ function getUserRecipes() {
   });
 }
 
-function showRecipe(recipeId) {
+function getRecipe(recipeId) {
   return $.ajax({
     url: config.apiOrigin + '/recipes/' + recipeId,
     method: 'GET',
@@ -44,6 +44,6 @@ function destroyRecipe(recipeId) {
 module.exports = {
   createRecipe,
   destroyRecipe,
+  getRecipe,
   getUserRecipes,
-  showRecipe,
 };

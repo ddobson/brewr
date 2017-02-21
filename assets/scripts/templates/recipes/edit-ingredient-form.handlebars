@@ -1,0 +1,27 @@
+<div class="row ingredient-wrapper">
+  <hr>
+  <div class="form-group">
+    <div class="col-xs-6 col-md-2">
+      <input name="recipe[recipe_ingredients_attributes][][quantity]" type="number" class="form-control form-inline ingredient-field" placeholder="Qty" value="{{quantity}}">
+    </div>
+    <div class="col-xs-6 col-md-2">
+      <select name="recipe[recipe_ingredients_attributes][][ingredient_attributes][unit]" class="form-control form-inline ingredient-field">
+        {{#select unit}}
+          <option value="oz">oz</option>
+          <option value="gal">gal</option>
+          <option value="lbs">lbs</option>
+          <option value="tsp">tsp</option>
+          <option value="tbs">tbs</option>
+        {{/select}}
+      </select>
+    </div>
+    <div class="col-xs-10 col-md-7">
+      <input name="recipe[recipe_ingredients_attributes][][ingredient_attributes][name]" type="text" class="form-control form-inline ingredient-field" placeholder="Ingredient" value="{{name}}">
+    </div>
+    <div class="col-xs-2 col-md-1">
+      <button class="btn btn-danger btn-fab btn-fab-mini btn-round pull-right destroy-ingredient-btn">
+        <i class="material-icons">remove</i>
+      </button>
+    </div>
+  </div>
+</div>

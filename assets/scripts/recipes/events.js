@@ -21,7 +21,7 @@ function showUserRecipe(event) {
 
   const recipeId = $(event.target).data('recipe-id');
 
-  api.showRecipe(recipeId)
+  api.getRecipe(recipeId)
     .then((response) => {
       const templateData = {
         recipe: response.recipe,
@@ -39,6 +39,21 @@ function onAddIngredient(event) {
   event.preventDefault();
 
   ui.addIngredientForm(event.target);
+}
+
+function onEditRecipe(event) {
+  event.preventDefault();
+
+  const recipeId = $(event.target).data('recipe-id');
+
+  api.getRecipe(recipeId)
+    .then((response) => {
+      const templateData = {
+        recipe: response.recipe,
+      };
+
+      ui.renderEditRecipeForm(templateData);
+    });
 }
 
 function onDestroyIngredient(event) {
@@ -81,6 +96,7 @@ function addHandlers() {
   $('#content').on('click', '#new-recipe-btn', newRecipeForm);
   $('#content').on('click', '#new-ingredient-btn', onAddIngredient);
   $('#content').on('click', '.destroy-ingredient-btn', onDestroyIngredient);
+  $('#content').on('click', '#edit-recipe-btn', onEditRecipe);
   $('#content').on('submit', '#new-recipe-form', onNewRecipeSubmit);
   $('#content').on('click', '#destroy-recipe-btn', onDestroyRecipe);
   $('#content').on('click', '#confirm-destroy-recipe-btn', confirmDestroyRecipe);
