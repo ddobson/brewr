@@ -1,8 +1,8 @@
 {{#if recipes}}
-  <div class="panel-heading">
-    <h3 class="panel-title">{{recipes.0.name}}</h3>
-  </div>
-  <div class="panel-body">
+  <div class="card-wrapper">
+    <div class="header header-amber text-center">
+      <h4>{{recipes.0.name}}</h4>
+    </div>
     <div class="row">
       <div class="col-xs-12 col-sm-5 col-md-4">
         <img src="{{recipes.0.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
@@ -12,29 +12,52 @@
         <p>{{recipes.0.summary}}</p>
       </div>
     </div>
-    <h4>Ingredients</h4>
-    <ul>
-      {{#each recipes.0.ingredients}}
-        <li><span class="ingredient-quantity">{{quantity}} {{unit}} {{name}}</li>
-      {{/each}}
-    </ul>
-    <h4>Instructions</h4>
-    <p>{{recipes.0.instructions}}</p>
-    <h4>Specifications</h4>
-    <div class="well">
-      <p><strong>ABV: </strong><span class="spec">{{recipes.0.abv}}</span></p>
-      <p><strong>IBU: </strong><span class="spec">{{recipes.0.ibu}}</span></p>
-      <p><strong>SRM: </strong><span class="spec">{{recipes.0.srm}}</span></p>
-      <p><strong>Original Gravity: </strong><span class="spec">{{recipes.0.original_gravity}}</span></p>
-      <p><strong>Final Gravity: </strong><span class="spec">{{recipes.0.final_gravity}}</span></p>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Ingredients</h4>
+        <ul>
+          {{#each recipes.0.ingredients}}
+            <li><strong>{{quantity}} {{unit}}</strong> {{name}}</li>
+          {{/each}}
+        </ul>
+      </div>
     </div>
-    <button id="destroy-recipe-btn" type="button" name="destroy-recipe-submit-btn" data-recipe-id="{{recipes.0.id}}" class="btn btn-danger pull-right">Delete</button>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Instructions</h4>
+        <p>{{recipes.0.instructions}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Specifications</h4>
+        <div class="well spec-well">
+          <p><strong>ABV: </strong><span class="spec">{{recipes.0.abv}}</span></p>
+          <p><strong>IBU: </strong><span class="spec">{{recipes.0.ibu}}</span></p>
+          <p><strong>SRM: </strong><span class="spec">{{recipes.0.srm}}</span></p>
+          <p><strong>Original Gravity: </strong><span class="spec">{{recipes.0.original_gravity}}</span></p>
+          <p><strong>Final Gravity: </strong><span class="spec">{{recipes.0.final_gravity}}</span></p>
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button id="destroy-recipe-btn" type="button" name="destroy-recipe-submit-btn" data-recipe-id="{{recipes.0.id}}" class="btn btn-danger pull-right show-btn-recipe">
+        Delete
+        <div class="ripple-container"></div>
+      </button>
+      <button id="edit-recipe-btn" type="button" name="edit-recipe-submit-btn" class="btn btn-warning pull-right show-btn-recipe">
+        Edit
+        <div class="ripple-container"></div>
+      </button>
+    </div>
   </div>
+</div>
 {{else if recipe}}
-  <div class="panel-heading">
-    <h3 class="panel-title">{{recipe.name}}</h3>
-  </div>
-  <div class="panel-body">
+  <div class="card-wrapper">
+    <div class="header header-amber text-center">
+      <h4>{{recipe.name}}</h4>
+    </div>
     <div class="row">
       <div class="col-xs-12 col-sm-5 col-md-4">
         <img src="{{recipe.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
@@ -44,26 +67,49 @@
         <p>{{recipe.summary}}</p>
       </div>
     </div>
-    <h4>Ingredients</h4>
-    <ul>
-      {{#each recipe.ingredients}}
-        <li><span class="ingredient-quantity">{{quantity}} {{unit}} {{name}}</li>
-      {{/each}}
-    </ul>
-    <h4>Instructions</h4>
-    <p>{{recipe.instructions}}</p>
-    <h4>Specifications</h4>
-    <div class="well">
-      <p><strong>ABV: </strong><span class="spec">{{recipe.abv}}</span></p>
-      <p><strong>IBU: </strong><span class="spec">{{recipe.ibu}}</span></p>
-      <p><strong>SRM: </strong><span class="spec">{{recipe.srm}}</span></p>
-      <p><strong>Original Gravity: </strong><span class="spec">{{recipe.original_gravity}}</span></p>
-      <p><strong>Final Gravity: </strong><span class="spec">{{recipe.final_gravity}}</span></p>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Ingredients</h4>
+        <ul>
+          {{#each recipe.ingredients}}
+            <li><strong>{{quantity}} {{unit}}</strong> {{name}}</li>
+          {{/each}}
+        </ul>
+      </div>
     </div>
-    <button id="destroy-recipe-btn" type="button" name="destroy-recipe-submit-btn" data-recipe-id="{{recipe.id}}" class="btn btn-danger pull-right" data-toggle="modal" data-target="#confirm-destroy-recipe-modal">Delete</button>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Instructions</h4>
+        <p>{{recipe.instructions}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Specifications</h4>
+        <div class="well spec-well">
+          <p><strong>ABV: </strong><span class="spec">{{recipe.abv}}</span></p>
+          <p><strong>IBU: </strong><span class="spec">{{recipe.ibu}}</span></p>
+          <p><strong>SRM: </strong><span class="spec">{{recipe.srm}}</span></p>
+          <p><strong>Original Gravity: </strong><span class="spec">{{recipe.original_gravity}}</span></p>
+          <p><strong>Final Gravity: </strong><span class="spec">{{recipe.final_gravity}}</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button id="destroy-recipe-btn" type="button" name="destroy-recipe-submit-btn" data-recipe-id="{{recipe.id}}" class="btn btn-danger pull-right show-btn-recipe">
+          Delete
+          <div class="ripple-container"></div>
+        </button>
+        <button id="edit-recipe-btn" type="button" name="edit-recipe-submit-btn" class="btn btn-warning pull-right show-btn-recipe">
+          Edit
+          <div class="ripple-container"></div>
+        </button>
+      </div>
+    </div>
   </div>
 {{else}}
-  <div class="panel-body">
+  <div class="header header-amber text-center">
     <p>Make some recipes to continue!</p>
   </div>
 {{/if}}

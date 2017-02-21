@@ -1,29 +1,29 @@
 <div class="row">
   <div class="col-md-3">
-    <button id="new-recipe-btn" class="btn btn-lg btn-primary">New Recipe</button>
-    <aside id="recipe-sidebar">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Your Recipes</h3>
-        </div>
-        <div class="panel-body">
-          {{#if recipes}}
-          <ul class="list-group recipes-list">
+    <aside id="recipe-sidebar" class="card recipe-sidebar card-push-down">
+      <div class="header header-amber text-center">
+        <h4>Your Recipes</h4>
+      </div>
+      <div class="recipe-list-wrap">
+        {{#if recipes}}
+          <ul class="recipes-list">
             {{#each recipes}}
-              <li class="list-group-item">
+              <li class="recipe-list-item" data-recipe-id="{{id}}">
                 <a class="recipe-item" data-recipe-id="{{id}}" href="#">{{name}}</a>
               </li>
             {{/each}}
           </ul>
-          {{else}}
-            <p>You don't have any recipes yet.</p>
-          {{/if}}
-        </div>
+        {{else}}
+          <p>You don't have any recipes yet.</p>
+        {{/if}}
       </div>
+      <button id="new-recipe-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right sidebar-new-recipe">
+        <i class="material-icons">add</i>
+      </button>
     </aside>
   </div>
-  <section id="main-recipe-content" class="col-md-9">
-    <div class="panel panel-default">
+  <section id="main-recipe-content" class="col-md-9 main-recipe-content">
+    <div class="card card-push-down">
       {{> recipes/show-recipe}}
     </div>
   </section>

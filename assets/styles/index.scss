@@ -7,3 +7,87 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'material-kit/core';
 
 @import 'material-kit/ripples';
+
+.navbar {
+  border-radius: 0;
+}
+
+.navbar-amber {
+  background-color: $amber-700;
+  color: $white;
+}
+
+.card .header {
+  margin: -40px 15px 15px;
+}
+
+.header.header-amber {
+  background-color: $amber-700;
+  color: $white;
+}
+
+.card-push-down {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.card-wrapper {
+  margin: 0 22px;
+}
+
+// Sidebar
+.recipes-list {
+  padding-right: 40px;
+}
+
+.recipe-sidebar {
+  margin-bottom: 25px;
+}
+
+.recipe-list-wrap {
+  padding-top: 10px;
+}
+
+.recipe-list-item {
+  font-size: 16px;
+  list-style: none;
+  padding: 15px 0;
+
+  a {
+    color: $grey-700;
+    font-weight: 300;
+    padding-left: 10px;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.recipe-list-item:hover {
+  background-color: $grey-100;
+}
+
+.sidebar-new-recipe {
+  bottom: 12px;
+  right: 12px;
+}
+
+// Show recipe
+.spec-well {
+  margin-bottom: 5px;
+}
+
+.main-recipe-content {
+  .show-btn-recipe {
+    margin-bottom: 14px;
+    margin-left: 12px;
+  }
+}
+
+// Form
+.required label::after {
+  color: $red-700;
+  content: ' *';
+  display: inline;
+}

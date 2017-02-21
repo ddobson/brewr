@@ -77,7 +77,7 @@ function confirmDestroyRecipe(event) {
 }
 
 function addHandlers() {
-  $('#content').on('click', '.recipe-item', showUserRecipe);
+  $('#content').on('click', '.recipe-list-item', showUserRecipe);
   $('#content').on('click', '#new-recipe-btn', newRecipeForm);
   $('#content').on('click', '#new-ingredient-btn', onAddIngredient);
   $('#content').on('click', '.destroy-ingredient-btn', onDestroyIngredient);

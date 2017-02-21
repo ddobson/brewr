@@ -1,14 +1,14 @@
-<div class="panel-heading">
-  <h3 class="panel-title">New Recipe</h3>
+<div class="header header-amber text-center">
+  <h4>New Recipe</h4>
 </div>
-<div class="panel-body">
+<div class="card-wrapper">
   <form id="new-recipe-form">
     <fieldset>
       <div class="form-group required">
         <label for="recipeName">Name</label>
-        <input name="recipe[name]" type="text" class="form-control" id="recipe-name" placeholder="Name">
+        <input name="recipe[name]" type="text" class="form-control" id="recipe-name">
       </div>
-      <div class="form-group required">
+      <div class="form-group">
         <label for="recipeName">Image URL</label>
         <input name="recipe[image_url]" type="text" class="form-control" id="recipe-image-url" placeholder="Example: http://i.imgur.com/homebrew.jpg">
       </div>
@@ -16,38 +16,37 @@
         <label for="recipeSummary">Summary</label>
         <textarea id="recipe-summary" name="recipe[summary]" class="form-control" rows="3"></textarea>
       </div>
-      <div class="form-group">
+      <div class="form-group required">
         <label for="recipeInstructions">Instructions</label>
         <textarea id="recipe-instructions" name="recipe[instructions]" class="form-control" rows="4"></textarea>
       </div>
       <div class="form-group">
         <label for="recipeName">ABV</label>
-        <input id="recipe-abv" name="recipe[abv]" type="text" class="form-control" placeholder="ABV">
+        <input id="recipe-abv" name="recipe[abv]" type="text" class="form-control">
       </div>
       <div class="form-group">
         <label for="recipeName">IBU</label>
-        <input id="recipe-ibu" name="recipe[ibu]" type="text" class="form-control" placeholder="IBU">
+        <input id="recipe-ibu" name="recipe[ibu]" type="text" class="form-control">
       </div>
       <div class="form-group">
         <label for="recipeName">SRM</label>
-        <input id="recipe-srm" name="recipe[srm]" type="text" class="form-control" placeholder="SRM">
+        <input id="recipe-srm" name="recipe[srm]" type="text" class="form-control">
       </div>
       <div class="form-group">
         <label for="recipeName">Original Gavity</label>
-        <input id="recipe-original-gravity" name="recipe[original_gravity]" type="text" class="form-control" placeholder="Original Gavity">
+        <input id="recipe-original-gravity" name="recipe[original_gravity]" type="text" class="form-control">
       </div>
       <div class="form-group">
         <label for="recipeName">Final Gravity</label>
-        <input id="recipe-final-gravity" name="recipe[final_gravity]" type="text" class="form-control" placeholder="Final Gravity">
+        <input id="recipe-final-gravity" name="recipe[final_gravity]" type="text" class="form-control">
       </div>
       <label for="ingredients">Ingredients</label>
       <div class="row ingredient-wrapper">
-        <hr>
         <div class="form-group">
-          <div class="col-xs-2">
+          <div class="col-xs-6 col-md-2">
             <input name="recipe[recipe_ingredients_attributes][][quantity]" type="number" class="form-control form-inline ingredient-field" placeholder="Qty">
           </div>
-          <div class="col-md-2">
+          <div class="col-xs-6 col-md-2">
             <select name="recipe[recipe_ingredients_attributes][][ingredient_attributes][unit]" class="form-control form-inline ingredient-field">
               <option>oz</option>
               <option>gal</option>
@@ -56,7 +55,7 @@
               <option>tbs</option>
             </select>
           </div>
-          <div class="col-md-7">
+          <div class="col-xs-12 col-md-7">
             <input name="recipe[recipe_ingredients_attributes][][ingredient_attributes][name]" type="text" class="form-control form-inline ingredient-field" placeholder="Ingredient">
           </div>
         </div>
@@ -64,15 +63,17 @@
       <hr>
       <div class="row button-control">
         <div class="col-xs-12">
-          <button id="new-ingredient-btn" class="btn btn-success pull-right">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right">
+          <!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->
+          <i class="material-icons">add</i>
         </button>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-xs-12">
-          <button id="new-recipe-submit-btn" class="btn btn-primary btn-lg pull-right" type="submit" name="new-recipe-submit-btn">Submit</button>
+          <button id="new-recipe-submit-btn" class="btn btn-success btn-lg pull-right" type="submit" name="new-recipe-submit-btn">Submit</button>
+          <div class="ripple-container"></div>
         </div>
       </div>
     </fieldset>

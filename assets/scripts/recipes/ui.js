@@ -27,12 +27,12 @@ function renderHomeContent(recipes) {
 
 function showRecipeContent(recipe) {
   const showRecipeHtml = showRecipe(recipe);
-  $('#main-recipe-content>.panel').html(showRecipeHtml);
+  $('#main-recipe-content>.card').html(showRecipeHtml);
 }
 
 function renderNewRecipeForm() {
   const newRecipeFormHtml = newRecipe();
-  $('#main-recipe-content>.panel').html(newRecipeFormHtml);
+  $('#main-recipe-content>.card').html(newRecipeFormHtml);
 }
 
 function addIngredientForm() {
