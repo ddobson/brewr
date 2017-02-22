@@ -1,25 +1,25 @@
 'use strict';
 
-const sharedUI = require('../shared/ui');
-
 // TEMPLATES
 
-// CONTENT
+// Content
 const homeContent = require('../templates/home-content.handlebars');
 const showRecipe = require('../templates/recipes/show-recipe.handlebars');
 
-// MODALS
+// Modals
 const destroyRecipeModal = require('../templates/modals/confirm-destroy-recipe.handlebars');
 
-// FORMS
+// Forms
 const newRecipeForm = require('../templates/recipes/new-recipe-form.handlebars');
 const editRecipeForm = require('../templates/recipes/edit-recipe-form.handlebars');
 const ingredientForm = require('../templates/recipes/ingredient-form.handlebars');
 
+// Alerts
+const alertBar = require('../templates/alerts.handlebars');
+
 function renderHomeContent(recipes) {
   const homeContentHtml = homeContent(recipes);
 
-  sharedUI.clearAlerts();
   $('#content').html(homeContentHtml);
 }
 
@@ -63,10 +63,22 @@ function confirmDestroyModal(recipeId) {
   $('#confirm-destroy-recipe-modal').modal('toggle');
 }
 
+function destroySuccess() {
+  const message = {
+    alertType: 'alert-danger',
+    message: 'Your recipe has been successfully deleted. Beer Gods weep.',
+  };
+  const alertBarHtml = alertBar(message);
+  console.log('start');
+  $('#alert-wrap').html(alertBarHtml);
+  console.log('end');
+}
+
 module.exports = {
   addIngredientForm,
   confirmDestroyModal,
   destroyIngredientForm,
+  destroySuccess,
   renderEditRecipeForm,
   renderNewRecipeForm,
   renderHomeContent,

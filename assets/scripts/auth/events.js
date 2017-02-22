@@ -48,6 +48,7 @@ function onSignIn(event) {
     .then(() => {
       const userEmail = cookies.getCookie('email');
 
+      sharedUI.clearAlerts();
       sharedUI.closeModal();
       authUI.renderNavigation(userEmail);
     })

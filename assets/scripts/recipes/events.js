@@ -101,7 +101,10 @@ function confirmDestroyRecipe(event) {
 
   api.destroyRecipe(recipeId)
   .then(sharedUI.closeModal)
-  .then(getAndShowRecipes);
+  .then(getAndShowRecipes)
+  .then(() => {
+    ui.destroySuccess();
+  });
 }
 
 function addHandlers() {
