@@ -5,7 +5,7 @@ const cookies = require('../../../lib/cookies');
 
 function getUserRecipes() {
   return $.ajax({
-    url: config.apiOrigin + '/user_recipes',
+    url: config.apiOrigin + '/recipes',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + cookies.getCookie('token'),
@@ -17,6 +17,9 @@ function getRecipe(recipeId) {
   return $.ajax({
     url: config.apiOrigin + '/recipes/' + recipeId,
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + cookies.getCookie('token'),
+    },
   });
 }
 
