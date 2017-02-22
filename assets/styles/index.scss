@@ -156,6 +156,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin: 6px 14px 6px 0;
 }
 
+.form-group.is-focused {
+  label {
+    color: $red-700;
+  }
+
+  .form-control {
+    background-image: linear-gradient($red-700, $red-700);
+  }
+}
+
 // Alerts
 .alert {
   .close {
