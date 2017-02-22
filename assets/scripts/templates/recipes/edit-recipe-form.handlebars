@@ -2,7 +2,7 @@
   <h4>New Recipe</h4>
 </div>
 <div class="card-wrapper">
-  <form id="new-recipe-form" autocomplete="off">
+  <form id="edit-recipe-form" data-recipe-id="{{recipe.id}}" autocomplete="off">
     <fieldset>
       <div class="form-group required">
         <label for="recipeName">Name</label>
@@ -54,7 +54,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button id="new-recipe-submit-btn" class="btn btn-success btn-lg pull-right" type="submit" name="new-recipe-submit-btn">Submit</button>
+          <button id="edit-recipe-submit-btn" class="btn btn-success btn-lg pull-right" type="submit" name="edit-recipe-submit-btn">Submit</button>
           <div class="ripple-container"></div>
         </div>
       </div>

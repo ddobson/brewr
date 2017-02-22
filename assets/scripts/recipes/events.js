@@ -57,6 +57,18 @@ function onEditRecipe(event) {
     });
 }
 
+function onEditRecipeSubmit(event) {
+  event.preventDefault();
+
+  const formData = $(event.target).serializeObject();
+  const recipeId = $(event.target).data('recipe-id');
+
+  api.updateRecipe(formData, recipeId)
+    .then(() => {
+      getAndShowRecipes();
+    });
+}
+
 function onDestroyIngredient(event) {
   event.preventDefault();
 
@@ -66,9 +78,9 @@ function onDestroyIngredient(event) {
 function onNewRecipeSubmit(event) {
   event.preventDefault();
 
-  const $formData = $(event.target).serializeObject();
+  const formData = $(event.target).serializeObject();
 
-  api.createRecipe($formData)
+  api.createRecipe(formData)
     .then(() => {
       getAndShowRecipes();
     });
@@ -98,6 +110,7 @@ function addHandlers() {
   $('#content').on('click', '#new-ingredient-btn', onAddIngredient);
   $('#content').on('click', '.destroy-ingredient-btn', onDestroyIngredient);
   $('#content').on('click', '#edit-recipe-btn', onEditRecipe);
+  $('#content').on('submit', '#edit-recipe-form', onEditRecipeSubmit);
   $('#content').on('submit', '#new-recipe-form', onNewRecipeSubmit);
   $('#content').on('click', '#destroy-recipe-btn', onDestroyRecipe);
   $('#content').on('click', '#confirm-destroy-recipe-btn', confirmDestroyRecipe);

@@ -31,6 +31,17 @@ function createRecipe(formData) {
   });
 }
 
+function updateRecipe(formData, recipeId) {
+  return $.ajax({
+    url: config.apiOrigin + '/recipes/' + recipeId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + cookies.getCookie('token'),
+    },
+    data: formData,
+  });
+}
+
 function destroyRecipe(recipeId) {
   return $.ajax({
     url: config.apiOrigin + '/recipes/' + recipeId,
@@ -46,4 +57,5 @@ module.exports = {
   destroyRecipe,
   getRecipe,
   getUserRecipes,
+  updateRecipe,
 };
