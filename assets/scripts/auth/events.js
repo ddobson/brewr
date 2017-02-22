@@ -2,6 +2,7 @@
 
 const api = require('./api');
 const authUI = require('./ui');
+const sharedUI = require('../shared/ui');
 const recipeEvents = require('../recipes/events');
 const getFormFields = require('../../../lib/get-form-fields');
 const cookies = require('../../../lib/cookies');
@@ -25,7 +26,7 @@ function onSignUp(event) {
 
   api.signUp(formData)
     .then(() => {
-      authUI.closeModal();
+      sharedUI.closeModal();
       authUI.onAuthSuccess('sign-up');
     })
     .catch(() => {
@@ -47,7 +48,7 @@ function onSignIn(event) {
     .then(() => {
       const userEmail = cookies.getCookie('email');
 
-      authUI.closeModal();
+      sharedUI.closeModal();
       authUI.renderNavigation(userEmail);
     })
     .then(() => {
@@ -80,7 +81,7 @@ function onChangePassword(event) {
 
   api.changePassword(formData)
     .then(() => {
-      authUI.closeModal();
+      sharedUI.closeModal();
       authUI.onAuthSuccess('change-password');
     })
     .catch(() => {

@@ -78,11 +78,6 @@ function onAuthSuccess(type) {
   $('#alert-wrap').html(alertBarHtml);
 }
 
-function closeModal() {
-  $('.modal').modal('toggle');
-  $('.modal-backdrop').remove();
-}
-
 // NAVIGATION FUNCTIONS
 
 function renderNavigation(userEmail) {
@@ -110,7 +105,6 @@ function renderWelcomeContent() {
 }
 
 module.exports = {
-  closeModal,
   onAuthError,
   onAuthSuccess,
   renderNavigation,

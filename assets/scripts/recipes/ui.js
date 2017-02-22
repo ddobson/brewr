@@ -14,11 +14,6 @@ const newRecipeForm = require('../templates/recipes/new-recipe-form.handlebars')
 const editRecipeForm = require('../templates/recipes/edit-recipe-form.handlebars');
 const ingredientForm = require('../templates/recipes/ingredient-form.handlebars');
 
-function closeModal() {
-  $('.modal').modal('toggle');
-  $('.modal-backdrop').remove();
-}
-
 function renderHomeContent(recipes) {
   const homeContentHtml = homeContent(recipes);
   $('#content').html(homeContentHtml);
@@ -59,15 +54,10 @@ function confirmDestroyModal(recipeId) {
   $('#confirm-destroy-recipe-modal').modal('toggle');
 }
 
-function destroySuccessful() {
-  closeModal();
-}
-
 module.exports = {
   addIngredientForm,
   confirmDestroyModal,
   destroyIngredientForm,
-  destroySuccessful,
   renderEditRecipeForm,
   renderNewRecipeForm,
   renderHomeContent,

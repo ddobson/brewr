@@ -2,6 +2,7 @@
 
 require('form-serializer');
 
+const sharedUI = require('../shared/ui');
 const ui = require('./ui');
 const api = require('./api');
 
@@ -87,7 +88,7 @@ function confirmDestroyRecipe(event) {
   const recipeId = $(event.target).data('recipe-id');
 
   api.destroyRecipe(recipeId)
-  .then(ui.destroySuccessful)
+  .then(sharedUI.closeModal)
   .then(getAndShowRecipes);
 }
 
