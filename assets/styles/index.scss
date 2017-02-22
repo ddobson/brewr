@@ -60,6 +60,12 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .card-wrapper {
   margin: 0 15px;
+
+  .bottles-img {
+    max-width: 300px;
+    display: block;
+    margin: 25px auto;
+  }
 }
 
 // Sidebar
