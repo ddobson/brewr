@@ -36,7 +36,12 @@ function renderNewRecipeForm() {
 
 function addIngredientForm() {
   const ingredientFormHtml = ingredientForm();
-  $('.ingredient-wrapper').last().after(ingredientFormHtml);
+
+  if ($('.ingredient-wrapper').length > 0) {
+    $('.ingredient-wrapper').last().after(ingredientFormHtml);
+  } else {
+    $('#ingredients-label').after(ingredientFormHtml);
+  }
 }
 
 function destroyIngredientForm($button) {

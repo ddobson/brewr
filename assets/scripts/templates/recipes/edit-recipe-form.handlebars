@@ -40,7 +40,7 @@
         <label for="recipeName">Final Gravity</label>
         <input id="recipe-final-gravity" name="recipe[final_gravity]" type="text" class="form-control" value="{{recipe.final_gravity}}">
       </div>
-      <label for="ingredients">Ingredients</label>
+      <label id="ingredients-label" for="ingredients">Ingredients</label>
       {{#each recipe.ingredients}}
         {{>edit-ingredient-form}}
       {{/each}}
