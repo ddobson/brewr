@@ -10,6 +10,7 @@ $(() => {
   authEvents.addHandlers();
   authEvents.checkAuthentication();
   recipeEvents.addHandlers();
+  $.material.init();
 });
 
 // use require with a reference to bundle the file and use it in this file
