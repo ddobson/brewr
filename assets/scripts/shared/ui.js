@@ -6,6 +6,11 @@ function closeModal() {
   $('body').removeClass('modal-open');
 }
 
+function clearAlerts() {
+  $('.alert').remove();
+}
+
 module.exports = {
+  clearAlerts,
   closeModal,
 };

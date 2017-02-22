@@ -149,3 +149,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .btn.btn-warning.add-ingredient-btn {
   margin: 6px 14px 6px 0;
 }
+
+// Alerts
+.alert {
+  .close {
+    right: 0;
+    top: 8px;
+  }
+
+  p {
+    padding-top: 6px;
+  }
+}

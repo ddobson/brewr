@@ -1,5 +1,7 @@
 'use strict';
 
+const sharedUI = require('../shared/ui');
+
 // TEMPLATES
 
 // CONTENT
@@ -16,6 +18,8 @@ const ingredientForm = require('../templates/recipes/ingredient-form.handlebars'
 
 function renderHomeContent(recipes) {
   const homeContentHtml = homeContent(recipes);
+
+  sharedUI.clearAlerts();
   $('#content').html(homeContentHtml);
 }
 
