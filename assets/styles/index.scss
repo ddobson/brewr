@@ -8,12 +8,21 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import 'material-kit/ripples';
 
-input:-webkit-autofill {
-  -webkit-box-shadow:0 0 0 500px white inset;
-}
-
 .navbar {
   border-radius: 0;
+
+  .dropdown-menu li > a:hover {
+    background-color: $grey-100;
+    box-shadow: none;
+    color: $grey-850;
+  }
+
+  .navbar .dropdown-menu li > a:focus {
+    background-color: $grey-100;
+    box-shadow: 0;
+    color: $grey-850;
+  }
+
 }
 
 .navbar-amber {
@@ -49,7 +58,7 @@ input:-webkit-autofill {
 }
 
 .recipe-list-wrap {
-  padding-top: 10px;
+  padding: 14px 0;
 }
 
 .recipe-list-item {
@@ -70,11 +79,12 @@ input:-webkit-autofill {
 
 .recipe-list-item:hover {
   background-color: $grey-100;
+  border-radius: 3px;
 }
 
 .sidebar-new-recipe {
-  bottom: 12px;
-  right: 12px;
+  bottom: 15px;
+  right: 15px;
 }
 
 // Show recipe
