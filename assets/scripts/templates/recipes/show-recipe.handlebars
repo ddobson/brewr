@@ -1,8 +1,8 @@
 {{#if recipes}}
+  <div class="header header-amber text-center">
+    <h4>{{recipes.0.name}}</h4>
+  </div>
   <div class="card-wrapper">
-    <div class="header header-amber text-center">
-      <h4>{{recipes.0.name}}</h4>
-    </div>
     <div class="row">
       <div class="col-xs-12 col-sm-5 col-md-4">
         <img src="{{recipes.0.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
@@ -54,10 +54,10 @@
   </div>
 </div>
 {{else if recipe}}
+  <div class="header header-amber text-center">
+    <h4>{{recipe.name}}</h4>
+  </div>
   <div class="card-wrapper">
-    <div class="header header-amber text-center">
-      <h4>{{recipe.name}}</h4>
-    </div>
     <div class="row">
       <div class="col-xs-12 col-sm-5 col-md-4">
         <img src="{{recipe.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
