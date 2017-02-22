@@ -8,6 +8,20 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import 'material-kit/ripples';
 
+.welcome {
+  margin-top: 5%;
+
+  .btn {
+    margin: 10px 5px;
+  }
+
+  .bottles-img {
+    max-width: 300px;
+    display: block;
+    margin: 15px auto 0;
+  }
+}
+
 .navbar {
   border-radius: 0;
 
@@ -58,7 +72,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .recipe-list-wrap {
-  padding: 14px 0;
+  padding: 5px 0 14px 0;
 }
 
 .recipe-list-item {
