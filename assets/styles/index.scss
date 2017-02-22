@@ -72,7 +72,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .recipe-list-wrap {
-  padding: 5px 0 14px 0;
+  padding: 5px 0 14px;
 }
 
 .recipe-list-item {
@@ -87,6 +87,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   }
 
   a:hover {
+    text-decoration: none;
+  }
+
+  a:focus {
     text-decoration: none;
   }
 }
@@ -110,6 +114,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   .show-btn-recipe {
     margin-bottom: 14px;
     margin-left: 12px;
+  }
+}
+
+.show-ingredients-list {
+  padding-left: 10px;
+
+  li {
+    list-style: none;
+    line-height: 1.8em;
   }
 }
 

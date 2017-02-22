@@ -14,18 +14,18 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h4>Ingredients</h4>
-        <ul>
-          {{#each recipes.0.ingredients}}
-            <li><strong>{{quantity}} {{unit}}</strong> {{name}}</li>
-          {{/each}}
-        </ul>
+        <h4>Instructions</h4>
+        <p>{{recipes.0.instructions}}</p>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h4>Instructions</h4>
-        <p>{{recipes.0.instructions}}</p>
+        <h4>Ingredients</h4>
+        <ul class="show-ingredients-list">
+          {{#each recipes.0.ingredients}}
+            <li><strong>{{quantity}} {{unit}}</strong> {{name}}</li>
+          {{/each}}
+        </ul>
       </div>
     </div>
     <div class="row">
@@ -69,18 +69,18 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h4>Ingredients</h4>
-        <ul>
-          {{#each recipe.ingredients}}
-            <li><strong>{{quantity}} {{unit}}</strong> {{name}}</li>
-          {{/each}}
-        </ul>
+        <h4>Instructions</h4>
+        <p>{{recipe.instructions}}</p>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h4>Instructions</h4>
-        <p>{{recipe.instructions}}</p>
+        <h4>Ingredients</h4>
+        <ul class="show-ingredients-list">
+          {{#each recipe.ingredients}}
+            <li><strong>{{quantity}} {{unit}}</strong> {{name}}</li>
+          {{/each}}
+        </ul>
       </div>
     </div>
     <div class="row">
