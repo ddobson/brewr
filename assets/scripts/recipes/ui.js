@@ -21,7 +21,7 @@ function closeModal() {
 
 function renderHomeContent(recipes) {
   const homeContentHtml = homeContent(recipes);
-  $('.content').html(homeContentHtml);
+  $('#content').html(homeContentHtml);
 }
 
 function showRecipeContent(recipe) {

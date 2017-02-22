@@ -2,7 +2,7 @@
   <h4>New Recipe</h4>
 </div>
 <div class="card-wrapper">
-  <form id="new-recipe-form">
+  <form id="new-recipe-form" autocomplete="off">
     <fieldset>
       <div class="form-group required">
         <label for="recipeName">Name</label>
@@ -14,11 +14,11 @@
       </div>
       <div class="form-group">
         <label for="recipeSummary">Summary</label>
-        <textarea id="recipe-summary" name="recipe[summary]" class="form-control" rows="3"></textarea>
+        <textarea id="recipe-summary" name="recipe[summary]" class="form-control" rows="4"></textarea>
       </div>
       <div class="form-group required">
         <label for="recipeInstructions">Instructions</label>
-        <textarea id="recipe-instructions" name="recipe[instructions]" class="form-control" rows="4"></textarea>
+        <textarea id="recipe-instructions" name="recipe[instructions]" class="form-control" rows="6"></textarea>
       </div>
       <div class="form-group">
         <label for="recipeName">ABV</label>
@@ -41,8 +41,8 @@
         <input id="recipe-final-gravity" name="recipe[final_gravity]" type="text" class="form-control">
       </div>
       <label for="ingredients">Ingredients</label>
-      <div class="row ingredient-wrapper">
-        <div class="form-group">
+      <div class="row ingredient-wrapper card">
+        <div class="form-group ingredient-form-group">
           <div class="col-xs-6 col-md-2">
             <input name="recipe[recipe_ingredients_attributes][][quantity]" type="number" class="form-control form-inline ingredient-field" placeholder="Qty">
           </div>
@@ -60,16 +60,13 @@
           </div>
         </div>
       </div>
-      <hr>
       <div class="row button-control">
         <div class="col-xs-12">
-          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right">
-          <!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->
+          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right add-ingredient-btn">
           <i class="material-icons">add</i>
         </button>
         </div>
       </div>
-      <hr>
       <div class="row">
         <div class="col-xs-12">
           <button id="new-recipe-submit-btn" class="btn btn-success btn-lg pull-right" type="submit" name="new-recipe-submit-btn">Submit</button>

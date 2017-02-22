@@ -2,7 +2,7 @@
   <h4>New Recipe</h4>
 </div>
 <div class="card-wrapper">
-  <form id="new-recipe-form">
+  <form id="new-recipe-form" autocomplete="off">
     <fieldset>
       <div class="form-group required">
         <label for="recipeName">Name</label>
@@ -14,11 +14,11 @@
       </div>
       <div class="form-group">
         <label for="recipeSummary">Summary</label>
-        <textarea id="recipe-summary" name="recipe[summary]" class="form-control" rows="3">{{recipe.summary}}</textarea>
+        <textarea id="recipe-summary" name="recipe[summary]" class="form-control" rows="4">{{recipe.summary}}</textarea>
       </div>
       <div class="form-group required">
         <label for="recipeInstructions">Instructions</label>
-        <textarea id="recipe-instructions" name="recipe[instructions]" class="form-control" rows="4">{{recipe.instructions}}</textarea>
+        <textarea id="recipe-instructions" name="recipe[instructions]" class="form-control" rows="6">{{recipe.instructions}}</textarea>
       </div>
       <div class="form-group">
         <label for="recipeName">ABV</label>
@@ -44,16 +44,14 @@
       {{#each recipe.ingredients}}
         {{>edit-ingredient-form}}
       {{/each}}
-      <hr>
       <div class="row button-control">
         <div class="col-xs-12">
-          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right">
+          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right add-ingredient-btn">
           <!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->
           <i class="material-icons">add</i>
         </button>
         </div>
       </div>
-      <hr>
       <div class="row">
         <div class="col-xs-12">
           <button id="new-recipe-submit-btn" class="btn btn-success btn-lg pull-right" type="submit" name="new-recipe-submit-btn">Submit</button>
