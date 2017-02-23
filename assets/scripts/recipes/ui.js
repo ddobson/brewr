@@ -1,5 +1,7 @@
 'use strict';
 
+const sharedUI = require('../shared/ui');
+
 // TEMPLATES
 
 // Content
@@ -25,16 +27,19 @@ function renderHomeContent(recipes) {
 
 function showRecipeContent(recipe) {
   const showRecipeHtml = showRecipe(recipe);
+
   $('#main-recipe-content>.card').html(showRecipeHtml);
 }
 
 function renderEditRecipeForm(recipe) {
   const editRecipeFormHtml = editRecipeForm(recipe);
+
   $('#main-recipe-content>.card').html(editRecipeFormHtml);
 }
 
 function renderNewRecipeForm() {
   const newRecipeFormHtml = newRecipeForm();
+
   $('#main-recipe-content>.card').html(newRecipeFormHtml);
 }
 
@@ -69,13 +74,24 @@ function destroySuccess() {
     message: 'Your recipe has been successfully deleted. Beer Gods weep.',
   };
   const alertBarHtml = alertBar(message);
-  console.log('start');
+
   $('#alert-wrap').html(alertBarHtml);
-  console.log('end');
+}
+
+function createUpdateError() {
+  const message = {
+    alertType: 'alert-danger',
+    message: 'Uh oh, there was an error! Please check that you\'ve supplied the required fields.',
+  };
+  const alertBarHtml = alertBar(message);
+
+  $('#alert-wrap').html(alertBarHtml);
+  sharedUI.scrollTop();
 }
 
 module.exports = {
   addIngredientForm,
+  createUpdateError,
   confirmDestroyModal,
   destroyIngredientForm,
   destroySuccess,

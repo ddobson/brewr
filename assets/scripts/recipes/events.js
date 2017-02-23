@@ -66,6 +66,11 @@ function onEditRecipeSubmit(event) {
   api.updateRecipe(formData, recipeId)
     .then(() => {
       getAndShowRecipes();
+      sharedUI.scrollTop();
+      sharedUI.clearAlerts();
+    })
+    .catch(() => {
+      ui.createUpdateError();
     });
 }
 
@@ -83,6 +88,11 @@ function onNewRecipeSubmit(event) {
   api.createRecipe(formData)
     .then(() => {
       getAndShowRecipes();
+      sharedUI.scrollTop();
+      sharedUI.clearAlerts();
+    })
+    .catch(() => {
+      ui.createUpdateError();
     });
 }
 
