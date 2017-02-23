@@ -1,5 +1,10 @@
 <div class="row">
-  <div class="col-md-3">
+  <section id="main-recipe-content" class="col-md-8 col-md-push-4 main-recipe-content">
+    <div class="card card-push-down">
+      {{> recipes/show-recipe}}
+    </div>
+  </section>
+  <div class="col-md-4 col-md-pull-8">
     <aside id="recipe-sidebar" class="card recipe-sidebar card-push-down">
       <div class="header header-amber text-center">
         <h4>Your Recipes</h4>
@@ -24,12 +29,4 @@
       </button>
     </aside>
   </div>
-  <section id="main-recipe-content" class="col-md-9 main-recipe-content">
-    <div class="card card-push-down">
-      {{> recipes/show-recipe}}
-    </div>
-  </section>
-</div>
-<div class="row">
-
 </div>
