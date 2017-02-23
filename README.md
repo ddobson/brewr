@@ -15,7 +15,15 @@ API Source: https://github.com/ddobson/brewr-api
 - Sass
 
 ### Building the APP
-When building the app I strived to keep the code _dry_ and practice separation of concerns. One of the most difficult problems I had to solve was creating and updating recipes on the server. My API utilizes a many-to-many relationship and it's join table also contains meaningful data. Using the rails helper method `accepts_nested_attributes_for` I was able to create a controller that can accept a `Recipe`, with a list of `Ingredient` attributes. Using a custom method I then de-duplicate data by finding existing ingredients and then only create new ones when necessary.
+
+When building the app I strived to keep the code _dry_ and practice separation of concerns. The structure of the client's script directory is divided up along resource types, each with it's own files for functional, presentational and network concerns. HTML is seperated into template folders which include reusable bits of markup.
+
+#### Cookies
+To add the ability to refresh the page without needing to login again, cookies were added to the project early in `lib/cookies`. All authenticated rely on cookies to pass client information to the API.
+
+#### Create & Update
+One of the most difficult problems I had to solve was creating and updating recipes on the server. My API utilizes a many-to-many relationship and it's join table also contains meaningful data. Using the rails helper method `accepts_nested_attributes_for` I was able to create a controller that can accept a `Recipe`, with a list of `Ingredient` attributes. Using another method the `#create` and `#update` actions then de-duplicate data by finding existing ingredients and then only create new ones when necessary.
+
 
 ``` ruby
 # Build ingredients from params and relationships to recipes
@@ -31,6 +39,8 @@ def build_recipe_ingredients
   end
 end
 ```
+
+Sending the data to the server in the correct format was also a challenge using the provided `getFormFields` helper. Without any documentation, I was eventually led to replace it with the [jQuery Serialize Object](https://github.com/macek/jquery-serialize-object) module.
 
 ### Requirements
 
