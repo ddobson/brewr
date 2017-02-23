@@ -3,6 +3,8 @@
 // TEMPLATE FILES //
 // Modal
 
+const sharedUI = require('../shared/ui');
+
 const signUpModal = require('../templates/modals/sign-up-modal.handlebars');
 const signInModal = require('../templates/modals/sign-in-modal.handlebars');
 const changePasswordModal = require('../templates/modals/change-password-modal.handlebars');
@@ -40,6 +42,12 @@ function triggerAuthModal(action) {
 }
 
 function onAuthError(type) {
+
+  if ($('#' + type + '-modal .auth-errors').length >= 1) {
+    sharedUI.shake('.auth-errors');
+    return;
+  }
+
   const message = {
     message: 'Uh oh, an error occured! Please check your credentials and try again.',
   };
