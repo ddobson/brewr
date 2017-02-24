@@ -118,6 +118,7 @@ function confirmDestroyRecipe(event) {
 }
 
 function addHandlers() {
+  $('#brand-link').on('click', getAndShowRecipes);
   $('#content').on('click', '.recipe-list-item', showUserRecipe);
   $('#content').on('click', '#new-recipe-btn', newRecipeForm);
   $('#content').on('click', '#new-ingredient-btn', onAddIngredient);
