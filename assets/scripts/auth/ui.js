@@ -24,6 +24,8 @@ const welcomeContent = require('../templates/welcome-content.handlebars');
 const alertBar = require('../templates/alerts.handlebars');
 
 function triggerAuthModal(action) {
+  $('.auth-modal').remove();
+
   switch (action) {
     case 'sign-up':
       const signUpModalHtml = signUpModal();
