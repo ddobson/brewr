@@ -22,29 +22,29 @@
       </div>
       <div class="form-group">
         <label for="recipeName">ABV</label>
-        <input id="recipe-abv"  class="form-control"name="recipe[abv]" type="number" step="0.1">
+        <input id="recipe-abv"  class="form-control"name="recipe[abv]" type="number" min="0" step="0.1">
       </div>
       <div class="form-group">
         <label for="recipeName">IBU</label>
-        <input id="recipe-ibu" class="form-control" name="recipe[ibu]" type="number">
+        <input id="recipe-ibu" class="form-control" name="recipe[ibu]" type="number" min="0" step="1">
       </div>
       <div class="form-group">
         <label for="recipeName">SRM</label>
-        <input id="recipe-srm" class="form-control" name="recipe[srm]" type="number">
+        <input id="recipe-srm" class="form-control" name="recipe[srm]" type="number" min="0" step="1">
       </div>
       <div class="form-group">
         <label for="recipeName">Original Gavity</label>
-        <input id="recipe-original-gravity" class="form-control" name="recipe[original_gravity]" type="number" step="0.001">
+        <input id="recipe-original-gravity" class="form-control" name="recipe[original_gravity]" type="number" min="0" step="0.001">
       </div>
       <div class="form-group">
         <label for="recipeName">Final Gravity</label>
-        <input id="recipe-final-gravity" class="form-control" name="recipe[final_gravity]" type="number" step="0.001">
+        <input id="recipe-final-gravity" class="form-control" name="recipe[final_gravity]" type="number" min="0" step="0.001">
       </div>
       <label for="ingredients">Ingredients</label>
       <div class="row ingredient-wrapper card">
         <div class="form-group ingredient-form-group">
           <div class="col-xs-6 col-md-2">
-            <input class="form-control form-inline ingredient-field" name="recipe[recipe_ingredients_attributes][][quantity]" type="number" step="0.1" placeholder="Qty">
+            <input class="form-control form-inline ingredient-field" name="recipe[recipe_ingredients_attributes][][quantity]" type="number" min="0" step="0.1" placeholder="Qty">
           </div>
           <div class="col-xs-6 col-md-2">
             <select name="recipe[recipe_ingredients_attributes][][ingredient_attributes][unit]" class="form-control form-inline ingredient-field">

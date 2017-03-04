@@ -22,23 +22,23 @@
       </div>
       <div class="form-group">
         <label for="recipeName">ABV</label>
-        <input id="recipe-abv" name="recipe[abv]" type="number" step="0.1" class="form-control" value="{{recipe.abv}}">
+        <input id="recipe-abv" name="recipe[abv]" type="number" step="0.1" min="0" class="form-control" value="{{recipe.abv}}">
       </div>
       <div class="form-group">
         <label for="recipeName">IBU</label>
-        <input id="recipe-ibu" name="recipe[ibu]" type="number" class="form-control" value="{{recipe.ibu}}">
+        <input id="recipe-ibu" name="recipe[ibu]" type="number" step="1" min="0" class="form-control" value="{{recipe.ibu}}">
       </div>
       <div class="form-group">
         <label for="recipeName">SRM</label>
-        <input id="recipe-srm" name="recipe[srm]" type="number" class="form-control" value="{{recipe.srm}}">
+        <input id="recipe-srm" name="recipe[srm]" type="number" step="1" min="0" class="form-control" value="{{recipe.srm}}">
       </div>
       <div class="form-group">
         <label for="recipeName">Original Gavity</label>
-        <input id="recipe-original-gravity" name="recipe[original_gravity]" type="number" step="0.001" class="form-control" value="{{recipe.original_gravity}}">
+        <input id="recipe-original-gravity" name="recipe[original_gravity]" type="number" min="0" step="0.001" class="form-control" value="{{recipe.original_gravity}}">
       </div>
       <div class="form-group">
         <label for="recipeName">Final Gravity</label>
-        <input id="recipe-final-gravity" name="recipe[final_gravity]" type="number" step="0.001" class="form-control" value="{{recipe.final_gravity}}">
+        <input id="recipe-final-gravity" name="recipe[final_gravity]" type="number" min="0" step="0.001" class="form-control" value="{{recipe.final_gravity}}">
       </div>
       <label id="ingredients-label" for="ingredients">Ingredients</label>
       {{#each recipe.ingredients}}
