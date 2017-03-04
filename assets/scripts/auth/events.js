@@ -65,9 +65,7 @@ function onSignOut(event) {
 
   api.signOut()
     .then(() => {
-      cookies.deleteCookie('id');
-      cookies.deleteCookie('email');
-      cookies.deleteCookie('token');
+      cookies.deleteCookies(['id', 'email', 'token']);
     })
     .then(() => {
       authUI.renderWelcomeContent();
