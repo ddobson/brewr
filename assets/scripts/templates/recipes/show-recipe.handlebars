@@ -5,7 +5,11 @@
   <div class="card-wrapper">
     <div class="row">
       <div class="col-xs-12 col-sm-5 col-md-4">
-        <img src="{{recipes.0.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
+        {{#if recipes.0.image_url}}
+          <img src="{{recipes.0.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
+        {{else}}
+          <img src="http://i.imgur.com/G28llpg.png" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
+        {{/if}}
       </div>
       <div class="col-xs-12 col-sm-7 col-md-8">
         <h4>Summary</h4>
@@ -60,7 +64,11 @@
   <div class="card-wrapper">
     <div class="row">
       <div class="col-xs-12 col-sm-5 col-md-4">
-        <img src="{{recipe.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
+        {{#if recipe.image_url}}
+          <img src="{{recipe.image_url}}" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
+        {{else}}
+          <img src="http://i.imgur.com/G28llpg.png" alt="homebrew thumbnail" class="img-responsive img-thumbnail">
+        {{/if}}
       </div>
       <div class="col-xs-12 col-sm-7 col-md-8">
         <h4>Summary</h4>
