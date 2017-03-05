@@ -10,7 +10,7 @@
       </div>
       <div class="form-group">
         <label for="recipeName">Image URL</label>
-        <input id="recipe-image-url" class="form-control" name="recipe[image_url]" type="url" pattern="(https?:\/\/.*\.(?:png|jpe?g|gif))" oninvalid="this.setCustomValidity('You must provide a valid image URL or leave this field blank.')" oninput="setCustomValidity('')" placeholder="Example: http://i.imgur.com/homebrew.jpg">
+        <input id="recipe-image-url" class="form-control" name="recipe[image_url]" type="url" pattern="(https?:\/\/.*\.(?:png|jpe?g|gif))" oninvalid="this.setCustomValidity('You must provide an image URL or leave this field blank. Image URLs begin with http(s):// and must end in .png, .jpg, .jpeg or .gif')" oninput="setCustomValidity('')" placeholder="Example: http://i.imgur.com/homebrew.jpg">
       </div>
       <div class="form-group">
         <label for="recipeSummary">Summary</label>
