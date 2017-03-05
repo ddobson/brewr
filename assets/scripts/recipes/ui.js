@@ -70,12 +70,13 @@ function confirmDestroyModal(recipeId) {
 
 function destroySuccess() {
   const message = {
-    alertType: 'alert-danger',
+    alertType: 'alert-success',
     message: 'Your recipe has been successfully deleted. Beer Gods weep.',
   };
   const alertBarHtml = alertBar(message);
 
   $('#alert-wrap').html(alertBarHtml);
+  sharedUI.scrollTop();
 }
 
 function createUpdateError() {
