@@ -33,7 +33,7 @@
         <input id="recipe-srm" name="recipe[srm]" type="number" step="1" min="0" class="form-control" value="{{recipe.srm}}">
       </div>
       <div class="form-group">
-        <label for="recipeName">Original Gavity</label>
+        <label for="recipeName">Original Gravity</label>
         <input id="recipe-original-gravity" name="recipe[original_gravity]" type="number" min="0" step="0.001" class="form-control" value="{{recipe.original_gravity}}">
       </div>
       <div class="form-group">
@@ -46,8 +46,7 @@
       {{/each}}
       <div class="row button-control">
         <div class="col-xs-12">
-          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right add-ingredient-btn">
-          <!-- <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> -->
+          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right add-ingredient-btn" title="Click to add ingredients">
           <i class="material-icons">add</i>
         </button>
         </div>

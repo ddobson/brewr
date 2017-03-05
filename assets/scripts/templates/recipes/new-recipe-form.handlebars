@@ -33,18 +33,18 @@
         <input id="recipe-srm" class="form-control" name="recipe[srm]" type="number" min="0" step="1">
       </div>
       <div class="form-group">
-        <label for="recipeName">Original Gavity</label>
+        <label for="recipeName">Original Gravity</label>
         <input id="recipe-original-gravity" class="form-control" name="recipe[original_gravity]" type="number" min="0" step="0.001">
       </div>
       <div class="form-group">
         <label for="recipeName">Final Gravity</label>
         <input id="recipe-final-gravity" class="form-control" name="recipe[final_gravity]" type="number" min="0" step="0.001">
       </div>
-      <label for="ingredients">Ingredients</label>
+      <label id="new-ingredient-btn" for="ingredients">Ingredients</label>
       <div class="row ingredient-wrapper card">
         <div class="form-group ingredient-form-group">
           <div class="col-xs-6 col-md-2">
-            <input class="form-control form-inline ingredient-field" name="recipe[recipe_ingredients_attributes][][quantity]" type="number" min="0" step="0.1" placeholder="Qty">
+            <input class="form-control form-inline ingredient-field" name="recipe[recipe_ingredients_attributes][][quantity]" type="number" min="0" step="0.01" placeholder="Qty">
           </div>
           <div class="col-xs-6 col-md-2">
             <select name="recipe[recipe_ingredients_attributes][][ingredient_attributes][unit]" class="form-control form-inline ingredient-field">
@@ -65,7 +65,7 @@
       </div>
       <div class="row button-control">
         <div class="col-xs-12">
-          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right add-ingredient-btn">
+          <button id="new-ingredient-btn" class="btn btn-warning btn-fab btn-fab-mini btn-round pull-right add-ingredient-btn" title="Click to add ingredients">
           <i class="material-icons">add</i>
         </button>
         </div>
